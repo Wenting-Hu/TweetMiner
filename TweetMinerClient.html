@@ -1,0 +1,42 @@
+<head>
+    <title>TweetMiner</title>
+</head>
+
+<body>
+
+<div id="headerwrap">
+    <div class="container">
+        <div class="col-lg-8 col-lg-offset-2">
+            <h1>Tweet<b>Miner</b></h1>
+        </div>
+    </div>
+</div> <!-- headerwrap -->
+
+<div class="col-md-4 col-sm-4">{{> tweetFeed}}</div>
+<div class="col-md-4 col-sm-4">{{> tweetFeed}}</div>
+<div class="col-md-4 col-sm-4">{{> tweetFeed}}</div>
+
+</body>
+
+
+<template name="tweetFeed">
+    <div class="tweetfeed-container">
+        <div class="panel panel-default tweetfeed">
+            <div class="panel-body">
+                <!-- Text box for tweet content -->
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h1>Top 10 Hot Topics</h1>
+                    </div>
+                </div>
+                {{#each tweets}}
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            {{this.name}}
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</template>

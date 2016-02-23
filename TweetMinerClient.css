@@ -1,0 +1,87 @@
+/**
+ * Created by huwenting on 2/23/16.
+ */
+body {
+
+    background-color: rgb(240, 247, 254);
+    background-image: url("http://slodive.com/wp-content/uploads/2013/02/cute-twitter-backgrounds/typo-twitter-background.jpg");
+    font-family: "Lato";
+    font-weight: 500;
+    font-size: 20px;
+    color: #555;
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+    -webkit-background-size: 80%;
+    -moz-background-size: 80%;
+    -o-background-size: 80%;
+    background-size: 80%;
+}
+
+.TweetMinerClient {
+    margin-top: 150px;
+    border-top: 1px solid black;
+}
+
+#table {
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -o-user-select: text;
+    user-select: text;
+}
+
+#headerwrap {
+    min-height: 600px;
+    width: 100;
+    background-image: url("http://slodive.com/wp-content/uploads/2013/02/cute-twitter-backgrounds/typo-twitter-background.jpg");
+    -webkit-background-size: 80%;
+    -moz-background-size: 80%;
+    -o-background-size: 80%;
+    background-size: 80%;
+
+}
+
+
+#headerwrap h1 { color: #FFFFFF; font-family: 'Raleway',sans-serif; font-size: 80px; font-weight: 800; line-height: 72px; margin: 0 0 100px; margin-top: 250px; text-align:right;text-shadow: 4px 4px 4px #000000;text-transform: uppercase;}
+
+
+#headerwrap h2 { color: #FFFFFF; font-family: 'Julius Sans One', sans-serif; font-size: 33px; font-weight: bold; line-height: 32px; margin-top: 200px;   margin-left: 650px;}
+
+
+#headerwrap a { color: #CEF0D4; text-decoration: underline; }
+
+
+#headerwrap a:hover { color: #a7e8f8; text-decoration: underline; }
+
+
+.my-container {
+    position: relative;
+
+}
+.my-container p {
+    position: absolute;
+    z-index: 2;
+    color: #00000; font-family: "Great Vibes", cursive; font-size: 62px; font-weight: 800; line-height: 72px; margin-top:230px; margin-left:1000px;
+}
+.my-container img {
+    position: absolute;
+    margin-left: 0px;
+    margin-top:150px;
+    width: 20%;
+    height: auto;
+    opacity: 0;
+    -webkit-filter: drop-shadow(8px 8px 10px #000000); /* Chrome, Safari, Opera */
+    filter: drop-shadow(8px 8px 10px #000000);
+}
+
+.tweetfeed {
+    background-color: rgb(240, 247, 254);
+    text-align:center;
+}
+
+.tweetfeed-container {
+    margin: 30px;
+    margin-left: 10px;
+    -webkit-filter: drop-shadow(8px 8px 10px #000000); /* Chrome, Safari, Opera */
+    filter: drop-shadow(8px 8px 10px #000000);
+}
