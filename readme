@@ -1,0 +1,24 @@
+Installation & Setup
+
+
+1. In the command line, type following:
+curl https://install.meteor.com/ | sh
+(Windows folks go here: https://www.meteor.com/install)
+
+2. Go to the folder in the command line:
+cd TweetMinerClient
+
+3. Adding bootstrap package in the command line, type following:
+meteor add twbs:bootstrap
+
+4. Building the application, type the following command in the command line:
+meteor
+
+5. After the terminal showing the following text:
+=> Started proxy.
+=> Started MongoDB.
+=> Started your app.
+
+=> App running at: http://localhost:3000/
+
+Go to local host by visit "http://localhost:3000/" in the browser.
