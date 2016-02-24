@@ -4,21 +4,17 @@ if(Meteor.isClient) {
     Meteor.startup(function() {
         Meteor.setInterval(function() {
             Meteor.call("updateRank");
-        },1000*60);
+        },1000*15);
 
         Meteor.setInterval(function() {
             Meteor.call("updateMention");
-        }, 1000*60);
+        }, 1000*15);
 
-
-        Meteor.setInterval(function() {
-            Meteor.call("refreshRandom");
-        }, 1000*60);
-
+        Meteor.call("refreshRandom");
 
         Meteor.setInterval(function() {
             Meteor.call("updateTraffic");
-        }, 1000*60);
+        }, 1000);
 
     });
 
@@ -46,5 +42,21 @@ if(Meteor.isClient) {
         }
 
     });
+
+
+    Template.refreshButton.events({
+         "click .buttonRefresh": function() {
+             console.log("click buttion");
+             Meteor.call("refreshRandom");
+         }
+    });
+
+    Template.speedmeter.helpers({
+        traffic: function() {
+            return Data.find({type: "traffic"}).fetch()[0]["traffic"];
+        }
+
+    })
+
 
 }

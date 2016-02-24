@@ -12,25 +12,32 @@ if(Meteor.isServer) {
 
 Meteor.methods({
     updateRank: function() {
-        Data.remove({type: "hashtag10"});
         HTTP.get('https://tweetminer.herokuapp.com/real-time/hashtag10',
         function(error, response) {
             if(!error) {
                 var obj = JSON.parse(response.content);
                 var entries = obj["entries"];
-                Data.insert({type: "hashtag10", entries: entries});
+                if(Data.find({type: "hashtag10"}).count() === 0 ) {
+                    Data.insert({type: "hashtag10", entries: entries});
+                }else {
+                    Data.update({type: "hashtag10"}, {$set: {entries: entries}});
+                }
             }
         });
     },
 
     updateMention: function() {
-        Data.remove({type: "mention"});
         HTTP.get('https://tweetminer.herokuapp.com/real-time/mention',
             function(error, response) {
                 if(!error) {
                     var obj = JSON.parse(response.content);
                     var entries = obj["entries"];
-                    Data.insert({type: "mention", entries: entries});
+                    if(Data.find({type: "mention"}).count() === 0 ) {
+                        Data.insert({type: "mention", entries: entries});
+                    }else {
+                        Data.update({type: "mention"}, {$set: {entries: entries}});
+                    }
+
                 }
             });
     },
@@ -39,12 +46,16 @@ Meteor.methods({
         HTTP.get('https://tweetminer.herokuapp.com/real-time/hashtag50',
         function(error, response) {
             if(!error) {
+                console.log("get random 10");
                 var obj = JSON.parse(response.content);
                 var entries = obj["entries"];
-                Data.insert({type: "random10", entries: entries});
+                if(Data.find({type: "random10"}).count() === 0 ) {
+                    Data.insert({type: "random10", entries: entries});
+                }else {
+                    Data.update({type: "random10"}, {$set: {entries: entries}});
+                }
             }
         })
-
     },
 
     updateTraffic: function() {
@@ -52,7 +63,11 @@ Meteor.methods({
         function(error, response) {
            if(!error) {
                var obj = JSON.parse(response.content);
-               Data.update({type:"traffic"}, {$set: {num: obj["traffic"]}});
+               if(Data.find({type: "traffic"}).count() === 0 ) {
+                   Data.insert({type: "traffic", traffic: obj["traffic"]});
+               }else {
+                   Data.update({type: "traffic"}, {$set: {traffic: obj["traffic"]}});
+               }
            }
         });
 

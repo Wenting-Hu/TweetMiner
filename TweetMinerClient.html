@@ -45,54 +45,7 @@
         {{> random10}}
     </div>
 
-    <!-- Tweets Per Second Module -->
-    <div class="my-container">
-        <div>
-            <span id="speedometer"></span>
-        </div>
-
-        <script>
-            var svg = d3.select("#speedometer")
-                    .append("svg:svg")
-                    .attr("width", 400)
-                    .attr("height", 400);
-
-
-            var gauge = iopctrl.arcslider()
-                    .radius(120)
-                    .events(false)
-                    .indicator(iopctrl.defaultGaugeIndicator);
-            gauge.axis().orient("in")
-                    .normalize(true)
-                    .ticks(12)
-                    .tickSubdivide(3)
-                    .tickSize(10, 8, 10)
-                    .tickPadding(5)
-                    .scale(d3.scale.linear()
-                            .domain([0, 160])
-                            .range([-3*Math.PI/4, 3*Math.PI/4]));
-
-            var segDisplay = iopctrl.segdisplay()
-                    .width(80)
-                    .digitCount(6)
-                    .negative(false)
-                    .decimals(0);
-
-            svg.append("g")
-                    .attr("class", "segdisplay")
-                    .attr("transform", "translate(130, 200)")
-                    .call(segDisplay);
-
-            svg.append("g")
-                    .attr("class", "gauge")
-                    .call(gauge);
-
-            segDisplay.value(56749);<!-- this is Tweets Per Second ------------------------------------------------------- -->
-            gauge.value(92);
-
-        </script>
-
-    </div>
+    {{> speedmeter}}
 
     <div class="textContainer"><h1>Tweets Per Second</h1></div>
 
@@ -173,4 +126,59 @@
 
 <template name = "refreshButton">
     <button class="button buttonRefresh"></button>
+</template>
+
+<template name = "speedmeter">
+    <!-- Tweets Per Second Module -->
+    <div class="my-container">
+        <div>
+            <span id="speedometer"></span>
+        </div>
+
+        <script>
+            var svg = d3.select("#speedometer")
+                    .append("svg:svg")
+                    .attr("width", 400)
+                    .attr("height", 400);
+
+
+            var gauge = iopctrl.arcslider()
+                    .radius(120)
+                    .events(false)
+                    .indicator(iopctrl.defaultGaugeIndicator);
+            gauge.axis().orient("in")
+                    .normalize(true)
+                    .ticks(12)
+                    .tickSubdivide(3)
+                    .tickSize(10, 8, 10)
+                    .tickPadding(5)
+                    .scale(d3.scale.linear()
+                            .domain([0, 4000])
+                            .range([-3*Math.PI/4, 3*Math.PI/4]));
+
+            var segDisplay = iopctrl.segdisplay()
+                    .width(80)
+                    .digitCount(6)
+                    .negative(false)
+                    .decimals(0);
+
+            svg.append("g")
+                    .attr("class", "segdisplay")
+                    .attr("transform", "translate(130, 200)")
+                    .call(segDisplay);
+
+            svg.append("g")
+                    .attr("class", "gauge")
+                    .call(gauge);
+
+            setInterval(update, 1000);
+
+            function update() {
+                segDisplay.value({{traffic}});<!-- this is Tweets Per Second ------------------------------------------------------- -->
+                gauge.value({{traffic}});
+            }
+
+        </script>
+
+    </div>
 </template>
