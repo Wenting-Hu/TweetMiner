@@ -1,6 +1,8 @@
 /**
  * Created by huwenting on 2/23/16.
  */
+
+
 body {
 
     background-color: rgb(240, 247, 254);
@@ -11,16 +13,67 @@ body {
     color: #555;
     -webkit-font-smoothing: antialiased;
     -webkit-overflow-scrolling: touch;
-    -webkit-background-size: 80%;
-    -moz-background-size: 80%;
-    -o-background-size: 80%;
-    background-size: 80%;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
 }
 
-.TweetMinerClient {
-    margin-top: 150px;
-    border-top: 1px solid black;
+
+/*this is the style for the first page and titles*/
+#headerwrap {
+    min-height: 600px;
+    width: 100%;
 }
+
+
+#headerwrap h1 { color: #FFFFFF; font-family: 'Raleway',sans-serif; font-size: 80px; font-weight: 800; line-height: 72px; margin: 0 0 100px; margin-top: 250px; text-align:right;text-shadow: 4px 4px 4px #000000;text-transform: uppercase;}
+
+
+#headerwrap h2 { color: #FFFFFF; font-family: 'Julius Sans One', sans-serif; font-size: 33px; font-weight: bold; line-height: 32px; margin-top: 200px;margin-left:auto; margin-right: auto;}
+
+
+#headerwrap a { color: #CEF0D4; text-decoration: underline; }
+
+
+#headerwrap a:hover { color: #a7e8f8; text-decoration: underline; }
+
+
+.img-holder {position: relative;}
+.img-holder .link {
+    position: absolute;
+    bottom: 10px; /*your button position*/
+    right: 10px; /*your button position*/
+}
+
+
+.my-container {
+    width: 350px;
+    height: 350px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/*this is the style for the Button*/
+.buttonRefresh{
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    width: 77px;
+    height: 77px;
+    background: url("http://www.fancyicons.com/free-icons/103/pretty-office-5/png/256/refresh_256.png");
+    background-repeat:no-repeat;
+    background-position:center top;
+    margin-left: auto;
+    margin-right: auto;
+    background-size: 100%;
+}
+
+/*this is the style for all the tables constructed*/
 
 #table {
     -webkit-user-select: text;
@@ -30,58 +83,70 @@ body {
     user-select: text;
 }
 
-#headerwrap {
-    min-height: 600px;
-    width: 100;
-    background-image: url("http://slodive.com/wp-content/uploads/2013/02/cute-twitter-backgrounds/typo-twitter-background.jpg");
-    -webkit-background-size: 80%;
-    -moz-background-size: 80%;
-    -o-background-size: 80%;
-    background-size: 80%;
-
-}
-
-
-#headerwrap h1 { color: #FFFFFF; font-family: 'Raleway',sans-serif; font-size: 80px; font-weight: 800; line-height: 72px; margin: 0 0 100px; margin-top: 250px; text-align:right;text-shadow: 4px 4px 4px #000000;text-transform: uppercase;}
-
-
-#headerwrap h2 { color: #FFFFFF; font-family: 'Julius Sans One', sans-serif; font-size: 33px; font-weight: bold; line-height: 32px; margin-top: 200px;   margin-left: 650px;}
-
-
-#headerwrap a { color: #CEF0D4; text-decoration: underline; }
-
-
-#headerwrap a:hover { color: #a7e8f8; text-decoration: underline; }
-
-
-.my-container {
-    position: relative;
-
-}
-.my-container p {
-    position: absolute;
-    z-index: 2;
-    color: #00000; font-family: "Great Vibes", cursive; font-size: 62px; font-weight: 800; line-height: 72px; margin-top:230px; margin-left:1000px;
-}
-.my-container img {
-    position: absolute;
-    margin-left: 0px;
-    margin-top:150px;
-    width: 20%;
-    height: auto;
-    opacity: 0;
-    -webkit-filter: drop-shadow(8px 8px 10px #000000); /* Chrome, Safari, Opera */
-    filter: drop-shadow(8px 8px 10px #000000);
-}
-
 .tweetfeed {
-    background-color: rgb(240, 247, 254);
+    background: url(main_bg.png);
     text-align:center;
 }
 
 .tweetfeed-container {
-    margin: 30px;
-    margin-left: 10px;
+    margin-top: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
     -webkit-filter: drop-shadow(8px 8px 10px #000000); /* Chrome, Safari, Opera */
     filter: drop-shadow(8px 8px 10px #000000);
 }
+
+
+/*this is the style for the tweets per seconds*/
+.unselectable {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* css formats for the gauge */
+.gauge .domain {
+    stroke-width: 2px;
+    stroke: #fff;
+}
+
+.gauge .tick line {
+    stroke: #fff;
+    stroke-width: 2px;
+}
+
+.gauge line {
+    stroke: #fff;
+}
+
+.gauge .arc, .gauge .cursor {
+    opacity: 0;
+}
+
+.gauge .major {
+    fill: #fff;
+    font-size: 20px;
+    font-family: 'Play', verdana, sans-serif;
+    font-weight: normal;
+}
+
+.gauge .indicator {
+    stroke: #EE3311;
+    fill: #000;
+    stroke-width: 4px;
+}
+
+/* css formats for the segment display */
+.segdisplay .on {
+    fill: #00FFFF;
+
+}
+
+.segdisplay .off {
+    fill: #00FFFF;
+    opacity: 0.15;
+}
+
+.textContainer h1{ color: #FFFFFF; font-family: 'Julius Sans One', sans-serif; font-size: 33px; font-weight: bold; line-height: 32px; margin-right: auto;text-align:center;  margin-left: auto; margin-top: 0px;}

@@ -1,5 +1,7 @@
 <head>
     <title>TweetMiner</title>
+
+
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Play:700,400' type='text/css'>
 
     <script type="text/javascript" src="http://iop.io/js/vendor/d3.v3.min.js"></script>
@@ -7,139 +9,102 @@
     <script type="text/javascript" src="http://iop.io/js/vendor/polymer/PointerGestures/pointergestures.js"></script>
     <script type="text/javascript" src="http://iop.io/js/iopctrl.js"></script>
 
-    <style>
-        body {
-            font: 16px arial;
-            background-color: #515151;
-        }
-
-        .unselectable {
-            -moz-user-select: -moz-none;
-            -khtml-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        /* css formats for the gauge */
-        .gauge .domain {
-            stroke-width: 2px;
-            stroke: #fff;
-        }
-
-        .gauge .tick line {
-            stroke: #fff;
-            stroke-width: 2px;
-        }
-
-        .gauge line {
-            stroke: #fff;
-        }
-
-        .gauge .arc, .gauge .cursor {
-            opacity: 0;
-        }
-
-        .gauge .major {
-            fill: #fff;
-            font-size: 20px;
-            font-family: 'Play', verdana, sans-serif;
-            font-weight: normal;
-        }
-
-        .gauge .indicator {
-            stroke: #EE3311;
-            fill: #000;
-            stroke-width: 4px;
-        }
-
-        /* css formats for the segment display */
-        .segdisplay .on {
-            fill: #00FFFF;
-
-        }
-
-        .segdisplay .off {
-            fill: #00FFFF;
-            opacity: 0.15;
-        }
-    </style>
 </head>
 
 <body>
 
-<div id="headerwrap">
-    <div class="container">
-        <div class="col-lg-8 col-lg-offset-2">
-            <h1>Tweet<b>Miner</b></h1>
+    <!-- headerwrap -->
+    <div id="headerwrap">
+        <div class="container">
+            <div class="col-lg-8 col-lg-offset-4">
+                <h1>Tweet<b>Miner</b></h1>
+            </div>
+            <div class="col-lg-7 col-lg-offset-1">
+                <h2>Auto Updating Tweets Ranking</h2>
+            </div>
         </div>
-    </div>
-</div> <!-- headerwrap -->
+    </div> <!-- headerwrap -->
 
-<!-- Top 10 Topic -->
-<div class="col-md-4 col-sm-4">
-    {{> topic10}}
-</div>
-<!-- Top 10 mentioned -->
-<div class="col-md-4 col-sm-4">
-    {{> mention10}}
-</div>
-<!-- Random selected 10 Topic -->
-<div class="col-md-4 col-sm-4">
-    {{> random10}}
-</div>
 
-<div class="my-container">
-    <div>
-        <span id="speedometer"></span>
+    <!-- the refreshing button for Ramdon Topics-->
+    <div class="col-lg-4 col-lg-offset-8">
+        {{> refreshButton}}
     </div>
 
-    <script>
-        var svg = d3.select("#speedometer")
-                .append("svg:svg")
-                .attr("width", 400)
-                .attr("height", 400);
+
+    <!-- Top 10 Topic -->
+    <div class="col-md-4 col-sm-4">
+        {{> topic10}}
+    </div>
+    <!-- Top 10 mentioned -->
+    <div class="col-md-4 col-sm-4">
+        {{> mention10}}
+    </div>
+    <!-- Random selected 10 Topic -->
+    <div class="col-md-4 col-sm-4">
+        {{> random10}}
+    </div>
+
+    <!-- Tweets Per Second Module -->
+    <div class="my-container">
+        <div>
+            <span id="speedometer"></span>
+        </div>
+
+        <script>
+            var svg = d3.select("#speedometer")
+                    .append("svg:svg")
+                    .attr("width", 400)
+                    .attr("height", 400);
 
 
-        var gauge = iopctrl.arcslider()
-                .radius(120)
-                .events(false)
-                .indicator(iopctrl.defaultGaugeIndicator);
-        gauge.axis().orient("in")
-                .normalize(true)
-                .ticks(12)
-                .tickSubdivide(3)
-                .tickSize(10, 8, 10)
-                .tickPadding(5)
-                .scale(d3.scale.linear()
-                        .domain([0, 160])
-                        .range([-3*Math.PI/4, 3*Math.PI/4]));
+            var gauge = iopctrl.arcslider()
+                    .radius(120)
+                    .events(false)
+                    .indicator(iopctrl.defaultGaugeIndicator);
+            gauge.axis().orient("in")
+                    .normalize(true)
+                    .ticks(12)
+                    .tickSubdivide(3)
+                    .tickSize(10, 8, 10)
+                    .tickPadding(5)
+                    .scale(d3.scale.linear()
+                            .domain([0, 160])
+                            .range([-3*Math.PI/4, 3*Math.PI/4]));
 
-        var segDisplay = iopctrl.segdisplay()
-                .width(80)
-                .digitCount(6)
-                .negative(false)
-                .decimals(0);
+            var segDisplay = iopctrl.segdisplay()
+                    .width(80)
+                    .digitCount(6)
+                    .negative(false)
+                    .decimals(0);
 
-        svg.append("g")
-                .attr("class", "segdisplay")
-                .attr("transform", "translate(130, 200)")
-                .call(segDisplay);
+            svg.append("g")
+                    .attr("class", "segdisplay")
+                    .attr("transform", "translate(130, 200)")
+                    .call(segDisplay);
 
-        svg.append("g")
-                .attr("class", "gauge")
-                .call(gauge);
+            svg.append("g")
+                    .attr("class", "gauge")
+                    .call(gauge);
 
-        segDisplay.value(56749);
-        gauge.value(92);
+            segDisplay.value(56749);<!-- this is Tweets Per Second ------------------------------------------------------- -->
+            gauge.value(92);
 
-    </script>
+        </script>
 
-</div>
+    </div>
+
+    <div class="textContainer"><h1>Tweets Per Second</h1></div>
+
+
+
 
 </body>
 
 
+
+
+<!-- templates for each module-->
 <template name="topic10">
     <div class="tweetfeed-container">
         <div class="panel panel-default tweetfeed">
@@ -147,7 +112,7 @@
                 <!-- Text box for tweet content -->
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h1>Top 10 Hot Topics</h1>
+                        <h2>Top 10 Hot Topics</h2>
                     </div>
                 </div>
                 {{#each tweets}}
@@ -169,7 +134,7 @@
                 <!-- Text box for tweet content -->
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h1>Top 10 Mentioned Users</h1>
+                        <h2>Top Mentioned Users</h2>
                     </div>
                 </div>
                 {{#each tweets}}
@@ -191,7 +156,7 @@
                 <!-- Text box for tweet content -->
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h1>Top 10 Hot Topics</h1>
+                        <h2>Random Hot Topics</h2>
                     </div>
                 </div>
                 {{#each tweets}}
@@ -204,4 +169,8 @@
             </div>
         </div>
     </div>
+</template>
+
+<template name = "refreshButton">
+    <button class="button buttonRefresh"></button>
 </template>
