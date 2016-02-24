@@ -1,4 +1,4 @@
-
+Data = new Meteor.Collection("data");
 
 if(Meteor.isClient) {
     Meteor.startup(function() {
@@ -10,31 +10,39 @@ if(Meteor.isClient) {
             Meteor.call("updateMention");
         }, 1000*60);
 
-        Meteor.call("updateRandom");
+
+        Meteor.setInterval(function() {
+            Meteor.call("refreshRandom");
+        }, 1000*60);
+
 
         Meteor.setInterval(function() {
             Meteor.call("updateTraffic");
-        }, 1000);
+        }, 1000*60);
 
     });
 
+
     Template.topic10.helpers({
        tweets: function() {
-           return Data.find({type:"hashtag10"}).fetch()["entries"];
+           var results = Data.find({type:"hashtag10"}).fetch()[0];
+           return results["entries"];
        }
 
     });
 
     Template.mention10.helpers({
         tweets: function() {
-            return Data.find({type:"mention"}).fetch()["entries"];
+            var results =  Data.find({type:"mention"}).fetch()[0];
+            return results["entries"];
         }
 
     });
 
     Template.random10.helpers({
         tweets: function() {
-            return Data.find({type:"random10"}).fetch()["entries"];
+            var results =  Data.find({type:"random10"}).fetch()[0];
+            return results["entries"];
         }
 
     });

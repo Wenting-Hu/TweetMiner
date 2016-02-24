@@ -1,7 +1,12 @@
 Data = new Meteor.Collection("data");
 
 if(Meteor.isServer) {
+    /*Meteor.startup(function() {
+        Meteor.publish("mention", function() {
+            return Data.find({type:"mention"});
+        })
 
+    })*/
 
 }
 
@@ -12,7 +17,8 @@ Meteor.methods({
         function(error, response) {
             if(!error) {
                 var obj = JSON.parse(response.content);
-                Data.insert({type: "hashtag10", entries: obj["entries"]});
+                var entries = obj["entries"];
+                Data.insert({type: "hashtag10", entries: entries});
             }
         });
     },
@@ -23,18 +29,19 @@ Meteor.methods({
             function(error, response) {
                 if(!error) {
                     var obj = JSON.parse(response.content);
-                    Data.insert({type: "mention", entries: obj["entries"]});
+                    var entries = obj["entries"];
+                    Data.insert({type: "mention", entries: entries});
                 }
             });
     },
 
     refreshRandom: function() {
-        Data.remove({type: "random10"});
         HTTP.get('https://tweetminer.herokuapp.com/real-time/hashtag50',
         function(error, response) {
             if(!error) {
                 var obj = JSON.parse(response.content);
-                Data.insert({type: "random10", entries: obj["entries"]});
+                var entries = obj["entries"];
+                Data.insert({type: "random10", entries: entries});
             }
         })
 
