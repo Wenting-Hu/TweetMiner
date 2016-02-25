@@ -4,10 +4,10 @@
 
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Play:700,400' type='text/css'>
 
-    <script type="text/javascript" src="http://iop.io/js/vendor/d3.v3.min.js"></script>
-    <script type="text/javascript" src="http://iop.io/js/vendor/polymer/PointerEvents/pointerevents.js"></script>
-    <script type="text/javascript" src="http://iop.io/js/vendor/polymer/PointerGestures/pointergestures.js"></script>
-    <script type="text/javascript" src="http://iop.io/js/iopctrl.js"></script>
+    <script type="text/javascript" src="d3.v3.min.js"></script>
+    <script type="text/javascript" src="pointerevents.js"></script>
+    <script type="text/javascript" src="pointergestures.js"></script>
+    <script type="text/javascript" src="iopctrl.js"></script>
 
 </head>
 
@@ -45,7 +45,12 @@
         {{> random10}}
     </div>
 
-    {{> speedmeter}}
+    <div class="my-container">
+        <div>
+            <span id="speedometer"></span>
+        </div>
+        {{> script_template}}
+    </div>
 
     <div class="textContainer"><h1>Tweets Per Second</h1></div>
 
@@ -128,57 +133,8 @@
     <button class="button buttonRefresh"></button>
 </template>
 
-<template name = "speedmeter">
-    <!-- Tweets Per Second Module -->
-    <div class="my-container">
-        <div>
-            <span id="speedometer"></span>
-        </div>
 
-        <script>
-            var svg = d3.select("#speedometer")
-                    .append("svg:svg")
-                    .attr("width", 400)
-                    .attr("height", 400);
-
-
-            var gauge = iopctrl.arcslider()
-                    .radius(120)
-                    .events(false)
-                    .indicator(iopctrl.defaultGaugeIndicator);
-            gauge.axis().orient("in")
-                    .normalize(true)
-                    .ticks(12)
-                    .tickSubdivide(3)
-                    .tickSize(10, 8, 10)
-                    .tickPadding(5)
-                    .scale(d3.scale.linear()
-                            .domain([0, 4000])
-                            .range([-3*Math.PI/4, 3*Math.PI/4]));
-
-            var segDisplay = iopctrl.segdisplay()
-                    .width(80)
-                    .digitCount(6)
-                    .negative(false)
-                    .decimals(0);
-
-            svg.append("g")
-                    .attr("class", "segdisplay")
-                    .attr("transform", "translate(130, 200)")
-                    .call(segDisplay);
-
-            svg.append("g")
-                    .attr("class", "gauge")
-                    .call(gauge);
-
-            setInterval(update, 1000);
-
-            function update() {
-                segDisplay.value({{traffic}});<!-- this is Tweets Per Second ------------------------------------------------------- -->
-                gauge.value({{traffic}});
-            }
-
-        </script>
-
+<template name="script_template">
+    <div id="script_div">
     </div>
 </template>
