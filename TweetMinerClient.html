@@ -1,9 +1,6 @@
 <head>
     <title>TweetMiner</title>
-
-
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Play:700,400' type='text/css'>
-
     <script type="text/javascript" src="d3.v3.min.js"></script>
     <script type="text/javascript" src="pointerevents.js"></script>
     <script type="text/javascript" src="pointergestures.js"></script>
@@ -11,55 +8,46 @@
 
 </head>
 
+
 <body>
 
-    <!-- headerwrap -->
-    <div id="headerwrap">
-        <div class="container">
-            <div class="col-lg-8 col-lg-offset-4">
-                <h1>Tweet<b>Miner</b></h1>
-            </div>
-            <div class="col-lg-7 col-lg-offset-1">
-                <h2>Auto Updating Tweets Ranking</h2>
-            </div>
-        </div>
-    </div> <!-- headerwrap -->
+<!-- headerwrap -->
+<div id="headerwrap">
+</div> <!-- headerwrap -->
 
 
-    <!-- the refreshing button for Ramdon Topics-->
-    <div class="col-lg-4 col-lg-offset-8">
-        {{> refreshButton}}
-    </div>
-
-
+<div id="bodywrap">
+    <div id="spaces"></div>
     <!-- Top 10 Topic -->
     <div class="col-md-4 col-sm-4">
+        <div class="buttonHidden"></div>
         {{> topic10}}
     </div>
     <!-- Top 10 mentioned -->
     <div class="col-md-4 col-sm-4">
+        <div class="buttonHidden"></div>
         {{> mention10}}
     </div>
     <!-- Random selected 10 Topic -->
     <div class="col-md-4 col-sm-4">
+        {{> refreshButton}}
         {{> random10}}
     </div>
 
-    <div class="my-container">
-        <div>
-            <span id="speedometer"></span>
-        </div>
-        {{> script_template}}
+
+    <!-- Tweet Per Second -->
+    <div align="center">
+        <span id="speedometer"></span>
     </div>
+    {{> script_template}}
+    <div align="center">
+        <div class="textContainer"><h1> Tweets Per Second</h1></div>
+    </div>
+</div> <!-- bodywrap -->
 
-    <div class="textContainer"><h1>Tweets Per Second</h1></div>
-
-
-
+<div id="spaces"></div>
 
 </body>
-
-
 
 
 <!-- templates for each module-->
@@ -76,7 +64,9 @@
                 {{#each tweets}}
                     <div class="panel panel-info">
                         <div class="panel-heading">
+                            <p>
                             {{keyword}}
+                            </p>
                         </div>
                     </div>
                 {{/each}}
@@ -98,7 +88,9 @@
                 {{#each tweets}}
                     <div class="panel panel-info">
                         <div class="panel-heading">
+                            <p>
                             {{keyword}}
+                            </p>
                         </div>
                     </div>
                 {{/each}}
@@ -120,7 +112,9 @@
                 {{#each tweets}}
                     <div class="panel panel-info">
                         <div class="panel-heading">
+                            <p>
                             {{keyword}}
+                            </p>
                         </div>
                     </div>
                 {{/each}}
@@ -129,7 +123,7 @@
     </div>
 </template>
 
-<template name = "refreshButton">
+<template name="refreshButton">
     <button class="button buttonRefresh"></button>
 </template>
 

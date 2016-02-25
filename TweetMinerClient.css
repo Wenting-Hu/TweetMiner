@@ -2,75 +2,101 @@
  * Created by huwenting on 2/23/16.
  */
 
-
 body {
-
-    background-color: rgb(240, 247, 254);
-    background-image: url("http://slodive.com/wp-content/uploads/2013/02/cute-twitter-backgrounds/typo-twitter-background.jpg");
+    background-color: #15283B;
+    background-image: url("ws_Typo_twitter_bird_1366x768 copy.jpg");
+    background-repeat: no-repeat;
     font-family: "Lato";
     font-weight: 500;
     font-size: 20px;
     color: #555;
-    -webkit-font-smoothing: antialiased;
-    -webkit-overflow-scrolling: touch;
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%;
 }
-
 
 /*this is the style for the first page and titles*/
 #headerwrap {
-    min-height: 600px;
+    height: 350px;
     width: 100%;
 }
 
-
-#headerwrap h1 { color: #FFFFFF; font-family: 'Raleway',sans-serif; font-size: 80px; font-weight: 800; line-height: 72px; margin: 0 0 100px; margin-top: 250px; text-align:right;text-shadow: 4px 4px 4px #000000;text-transform: uppercase;}
-
-
-#headerwrap h2 { color: #FFFFFF; font-family: 'Julius Sans One', sans-serif; font-size: 33px; font-weight: bold; line-height: 32px; margin-top: 200px;margin-left:auto; margin-right: auto;}
-
-
-#headerwrap a { color: #CEF0D4; text-decoration: underline; }
-
-
-#headerwrap a:hover { color: #a7e8f8; text-decoration: underline; }
-
-
-.img-holder {position: relative;}
-.img-holder .link {
-    position: absolute;
-    bottom: 10px; /*your button position*/
-    right: 10px; /*your button position*/
+#headerwrap h1 {
+    color: #52C3FF;
+    font-family: 'Raleway', sans-serif;
+    font-size: 80px;
+    font-weight: 800;
+    line-height: 72px;
+    margin: 0 0 100px;
+    margin-top: 250px;
+    text-align: right;
+    text-shadow: 8px 8px 8px #000000;
+    text-transform: uppercase;
 }
 
-
-.my-container {
-    width: 350px;
-    height: 350px;
+#headerwrap h2 {
+    color: #FFFFFF;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 33px;
+    font-weight: bold;
+    line-height: 32px;
+    margin-top: 200px;
     margin-left: auto;
     margin-right: auto;
 }
 
+#headerwrap a {
+    color: #CEF0D4;
+    text-decoration: underline;
+}
 
-/*this is the style for the Button*/
-.buttonRefresh{
-    font-family: Arial,Helvetica,sans-serif;
+#headerwrap a:hover {
+    color: #a7e8f8;
+    text-decoration: underline;
+}
+
+#spaces {
+    height: 200px;
+}
+
+/*this is the style for the bodypart*/
+#bodywrap {
+    background-image: url(separator.png);
+    background-repeat: no-repeat;
+}
+
+
+/*this is the style for the Buttons*/
+
+.buttonHidden { /*for holding space*/
+    display: block;
+    width: 150px;
+    height: 120px;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url(autoupdate.png);
+    background-size: 100%;
+    background-position: center top;
+    background-repeat: no-repeat;
+    filter: drop-shadow(8px 8px 10px #000000);
+    -webkit-filter: drop-shadow(8px 8px 10px #000000); /* Chrome, Safari, Opera */
+}
+
+.buttonRefresh { /*refresh Button*/
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     font-weight: normal;
     text-align: center;
     text-decoration: none;
     display: block;
-    width: 77px;
-    height: 77px;
-    background: url("http://www.fancyicons.com/free-icons/103/pretty-office-5/png/256/refresh_256.png");
-    background-repeat:no-repeat;
-    background-position:center top;
+    width: 120px;
+    height: 120px;
+    background: url(refreshbutton.png);
+    background-repeat: no-repeat;
+    background-position: center top;
     margin-left: auto;
     margin-right: auto;
     background-size: 100%;
+    filter: drop-shadow(8px 8px 10px #000000);
+    -webkit-filter: drop-shadow(8px 8px 10px #000000); /* Chrome, Safari, Opera */
+    border-radius: 50%;
 }
 
 /*this is the style for all the tables constructed*/
@@ -85,19 +111,37 @@ body {
 
 .tweetfeed {
     background: url(main_bg.png);
-    text-align:center;
+    text-align: center;
 }
 
 .tweetfeed-container {
-    margin-top: 0px;
+    margin-top: 20px;
     margin-left: 20px;
     margin-right: 20px;
     -webkit-filter: drop-shadow(8px 8px 10px #000000); /* Chrome, Safari, Opera */
     filter: drop-shadow(8px 8px 10px #000000);
 }
 
+.tweetfeed-container h2 {
+    color: #FFFFFF;
+    font-family: 'Julius Sans One', sans-serif;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.tweetfeed-container p {
+    color: #172E46;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 22px;
+    font-weight: 700;
+}
 
 /*this is the style for the tweets per seconds*/
+
 .unselectable {
     -moz-user-select: -moz-none;
     -khtml-user-select: none;
@@ -149,4 +193,37 @@ body {
     opacity: 0.15;
 }
 
-.textContainer h1{ color: #FFFFFF; font-family: 'Julius Sans One', sans-serif; font-size: 33px; font-weight: bold; line-height: 32px; margin-right: auto;text-align:center;  margin-left: auto; margin-top: 0px;}
+.textContainer {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+
+.textContainer h1 {
+    color: #FFFFFF;
+    font-family: 'Julius Sans One', sans-serif;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 33px;
+    font-weight: bold;
+    margin-top: -30px;
+}
+
+/*Reserved for future use*/
+.my-container {
+    width: 500px;
+    height: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.img-holder {
+    position: relative;
+}
+
+.img-holder .link {
+    position: absolute;
+    bottom: 10px; /*your button position*/
+    right: 10px; /*your button position*/
+}
