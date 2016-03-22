@@ -5,6 +5,10 @@
     <script type="text/javascript" src="pointerevents.js"></script>
     <script type="text/javascript" src="pointergestures.js"></script>
     <script type="text/javascript" src="iopctrl.js"></script>
+    <script type="text/javascript" src="uStates.js"></script>
+    <script type="text/javascript" src="d3.v3.min2.js"></script>
+
+
 
 </head>
 
@@ -13,41 +17,55 @@
 
 <!-- headerwrap -->
 <div id="headerwrap">
+    <nav class="menu2">
+        <menu>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/heatmap">HEATMAP</a></li>
+            <li><a href="/sentiment">SENTIMENT</a></li>
+
+            <li><a href="#">WORDCLOUD</a></li>
+            <li><a href="#">SETTING</a></li>
+        </menu>
+    </nav>
 </div> <!-- headerwrap -->
 
-
-<div id="bodywrap">
-    <div id="spaces"></div>
-    <!-- Top 10 Topic -->
-    <div class="col-md-4 col-sm-4">
-        <div class="buttonHidden"></div>
-        {{> topic10}}
-    </div>
-    <!-- Top 10 mentioned -->
-    <div class="col-md-4 col-sm-4">
-        <div class="buttonHidden"></div>
-        {{> mention10}}
-    </div>
-    <!-- Random selected 10 Topic -->
-    <div class="col-md-4 col-sm-4">
-        {{> refreshButton}}
-        {{> random10}}
-    </div>
-
-
-    <!-- Tweet Per Second -->
-    <div align="center">
-        <span id="speedometer"></span>
-    </div>
-    {{> script_template}}
-    <div align="center">
-        <div class="textContainer"><h1> Tweets Per Second</h1></div>
-    </div>
-</div> <!-- bodywrap -->
-
-<div id="spaces"></div>
+{{>Router}}
 
 </body>
+
+
+<template name="homepage">
+    <div id="bodywrap">
+        <div id="spaces"></div>
+        <!-- Top 10 Topic -->
+        <div class="col-md-4 col-sm-4">
+            <div class="buttonHidden"></div>
+            {{> topic10}}
+        </div>
+        <!-- Top 10 mentioned -->
+        <div class="col-md-4 col-sm-4">
+            <div class="buttonHidden"></div>
+            {{> mention10}}
+        </div>
+        <!-- Random selected 10 Topic -->
+        <div class="col-md-4 col-sm-4">
+            {{> refreshButton}}
+            {{> random10}}
+        </div>
+
+
+        <!-- Tweet Per Second -->
+        <div align="center">
+            <span id="speedometer"></span>
+        </div>
+        {{> script_template}}
+        <div align="center">
+            <div class="textContainer"><h1> Tweets Per Second</h1></div>
+        </div>
+    </div> <!-- bodywrap -->
+
+    <div id="spaces"></div>
+</template>
 
 
 <!-- templates for each module-->

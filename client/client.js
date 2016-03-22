@@ -60,6 +60,14 @@ if (Meteor.isClient) {
         });
     });
 
+    Template.sentiment.onRendered(function() {
+        $(document).ready(function() {
+            var script = document.createElement("script");
+            script.type="text/javascript";
+            script.src = "sentiment.js";
+            $("#sentiment_div").append(script);
+        });
+    });
 
 
     Template.speedmeter.helpers({

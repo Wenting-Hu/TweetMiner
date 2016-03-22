@@ -1,0 +1,23 @@
+.bar {
+    fill: #52C3FF;
+}
+
+.bar:hover {
+    fill: steelblue;
+}
+
+.axis {
+    font: 15px sans-serif;
+    fill: #00FFFF;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #52C3FF;
+    shape-rendering: crispEdges;
+}
+
+.x.axis path {
+    stroke: #52C3FF;
+}
