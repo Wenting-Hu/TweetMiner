@@ -23,9 +23,10 @@ if (Meteor.isClient) {
         Meteor.setInterval(function () {
             Meteor.call("updateHeatMap");
         }, 1000 * 15);
-        /*Meteor.setInterval(function () {
+
+        Meteor.setInterval(function () {
             Meteor.call("updateWordcloud");
-        }, 1000 * 15);*/
+        }, 1000 * 15);
 
     });
 
