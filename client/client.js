@@ -16,6 +16,17 @@ if (Meteor.isClient) {
             Meteor.call("updateTraffic");
         }, 1000);
 
+        Meteor.setInterval(function () {
+            Meteor.call("updateSentiment");
+        }, 1000 * 15);
+
+        Meteor.setInterval(function () {
+            Meteor.call("updateHeatMap");
+        }, 1000 * 15);
+        /*Meteor.setInterval(function () {
+            Meteor.call("updateWordcloud");
+        }, 1000 * 15);*/
+
     });
 
 
@@ -69,12 +80,22 @@ if (Meteor.isClient) {
         });
     });
 
+    Template.wordcloud.onRendered(function() {
+        $(document).ready(function() {
+            var script = document.createElement("script");
+            script.type="text/javascript";
+            script.src = "wordcloud.js";
+            $("#wordcloud_div").append(script);
+        });
+    })
 
-    Template.speedmeter.helpers({
-        traffic: function () {
-            return Data.find({type: "traffic"}).fetch()[0]["traffic"];
-        }
-
+    Template.heatmap.onRendered(function() {
+        $(document).ready(function() {
+            var script = document.createElement("script");
+            script.type="text/javascript";
+            script.src = "heatmap.js";
+            $("#statesvg").append(script);
+        });
     })
 
 

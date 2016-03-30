@@ -4,7 +4,7 @@
 
 body {
     background-color: #15283B;
-    background-image: url("ws_Typo_twitter_bird_1366x768 copy.jpg");
+    /*background-image: url("ws_Typo_twitter_bird_1366x768 copy.jpg");*/
     background-position: top right;
     background-repeat: no-repeat;
     font-family: "Lato";
@@ -15,7 +15,8 @@ body {
 
 /*this is the style for the first page and titles*/
 #headerwrap {
-    height: 350px;
+    height: 550px;
+    background-image: url("ws_Typo_twitter_bird_1366x768 copy.jpg");
     width: 100%;
 }
 

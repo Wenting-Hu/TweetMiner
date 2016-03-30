@@ -9,28 +9,6 @@
 <template name="heatmap">
     <div id="tooltip"></div><!-- div to hold tooltip. -->
     <svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
-    <script>
-
-        function tooltipHtml(n, d){	/* function to create html content string in tooltip div. */
-            return "<h4>"+n+"</h4><table>"+
-                    "<tr><td>Tweets/sec</td><td>"+(d.low)+"</td></tr>"+
-                    "</table>";
-        }
-
-        var sampleData ={};	/* Sample random data. */
-        ["HI", "AK", "FL", "SC", "GA", "AL", "NC", "TN", "RI", "CT", "MA",
-            "ME", "NH", "VT", "NY", "NJ", "PA", "DE", "MD", "WV", "KY", "OH",
-            "MI", "WY", "MT", "ID", "WA", "DC", "TX", "CA", "AZ", "NV", "UT",
-            "CO", "NM", "OR", "ND", "SD", "NE", "IA", "MS", "IN", "IL", "MN",
-            "WI", "MO", "AR", "OK", "KS", "LS", "VA"]
-                .forEach(function(d){
-                    var low=Math.round(100*Math.random());
-                    sampleData[d]={low:low, color:d3.interpolate("white transparent transparent transparent", "#4eacff")(low/100)};
-                });
-
-        /* draw states on id #statesvg */
-        uStates.draw("#statesvg", sampleData, tooltipHtml);
-    </script>
 
 
 

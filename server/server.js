@@ -71,8 +71,70 @@ Meteor.methods({
            }
         });
 
-    }
+    },
 
+    updateWordcloud: function() {
+        HTTP.get('http://tweetminer.herokuapp.com/real-time/wordcloud',
+            function(error, response) {
+                if(!error) {
+                    console.log("get http success-for wordcloud");
+                    var obj = JSON.parse(response.content);
+                    var wordcloud = obj["WordCloud"];
+                    //var wordcloud = [{ "_id" : { "oid" : "56fa06eaa5cf4d57dc022885" }, "category" : "wordCloud", "keyword" : "man", "count" : 31 }, { "_id" : { "oid" : "56fa06eaa5cf4d57dc022886" }, "category" : "wordCloud", "keyword" : "free", "count" : 12 }];
+
+                    if(Data.find({type: "WordCloud"}).count() === 0 ) {
+                        Data.insert({type: "WordCloud", wordcloud: wordcloud});
+                    }else {
+                        Data.update({type: "WordCloud"}, {$set: {wordcloud: wordcloud}});
+                    }
+                }
+            });
+
+    },
+
+    updateHeatMap: function() {
+        HTTP.get('http://tweetminer.herokuapp.com/real-time/heatmap',
+            function(error, response) {
+                if(!error) {
+                   // console.log("get http success-for heat map---------");
+                    var obj = JSON.parse(response.content);
+                    var States = obj["States"];
+                    //console.log(heatmap);
+                    //[{ "_id" : { "oid" : "56f9d0d8dd084e71ed92e962" }, "category" : "heatmap", "state" : "DE", "count" : 0 }, { "_id" : { "oid" : "56f9d0d8dd084e71ed92e963" }, "category" : "heatmap", "state" : "HI", "count" : 0 }
+                    if(Data.find({type: "HeatMap"}).count() === 0 ) {
+                        Data.insert({type: "HeatMap", heatmap: States});
+                    }else {
+                        Data.update({type: "HeatMap"}, {$set: {heatmap: States}});
+
+                    }
+                }
+            });
+
+    },
+
+    updateSentiment: function() {
+        HTTP.get('http://tweetminer.herokuapp.com/real-time/sentiment',
+            function(error, response) {
+                if(!error) {
+                    console.log("get http success-for Sentiment---------");
+                    var obj = JSON.parse(response.content);
+                    var val = obj["Sentiment"];
+                    //console.log(heatmap);
+                    //[{ "_id" : { "oid" : "56f9d0d8dd084e71ed92e962" }, "category" : "heatmap", "state" : "DE", "count" : 0 }, { "_id" : { "oid" : "56f9d0d8dd084e71ed92e963" }, "category" : "heatmap", "state" : "HI", "count" : 0 }
+                    if(Data.find({type: "Sentiment"}).count() === 0 ) {
+                        Data.insert({type: "Sentiment", sentiment: val});
+                    }else {
+                        Data.update({type: "Sentiment"}, {$set: {sentiment: val}});
+                        //console.log("insert succeeded");
+                        //console.log(val);
+                    }
+
+                    var fs = Npm.require('fs');
+                    console.log(fs);
+                }
+            });
+
+    }
 
 
 })

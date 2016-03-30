@@ -51,7 +51,7 @@ d3.tsv("data.tsv", type, function(error, data) {
         .attr("y", 6)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
-        .text("Sentiment");
+        .text("Trump Support rate");
 
     svg.selectAll(".bar")
         .data(data)

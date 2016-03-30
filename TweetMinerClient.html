@@ -7,34 +7,38 @@
     <script type="text/javascript" src="iopctrl.js"></script>
     <script type="text/javascript" src="uStates.js"></script>
     <script type="text/javascript" src="d3.v3.min2.js"></script>
-
-
-
+    <script type="text/javascript" src="wordcloud1.js"></script>
+    <script type="text/javascript" src="d3.layout.cloud.js"></script>
+    <script type="text/javascript" src="heatmap.js"></script>
 </head>
 
 
 <body>
+<nav class="menu2">
+    <menu>
+        <li><a href="/">HOME</a></li>
+        <li><a href="/heatmap">HEATMAP</a></li>
+        <li><a href="/sentiment">SENTIMENT</a></li>
 
+        <li><a href="/wordcloud">WORDCLOUD</a></li>
+        <li><a href="/table">TOP10</a></li>
+    </menu>
+</nav>
 <!-- headerwrap -->
-<div id="headerwrap">
-    <nav class="menu2">
-        <menu>
-            <li><a href="/">HOME</a></li>
-            <li><a href="/heatmap">HEATMAP</a></li>
-            <li><a href="/sentiment">SENTIMENT</a></li>
+<!--<div id="headerwrap"> -->
 
-            <li><a href="#">WORDCLOUD</a></li>
-            <li><a href="#">SETTING</a></li>
-        </menu>
-    </nav>
-</div> <!-- headerwrap -->
+<!--</div> --><!-- headerwrap -->
 
 {{>Router}}
 
 </body>
 
-
 <template name="homepage">
+    <div id="headerwrap">
+
+    </div>
+</template>
+<template name="table">
     <div id="bodywrap">
         <div id="spaces"></div>
         <!-- Top 10 Topic -->
