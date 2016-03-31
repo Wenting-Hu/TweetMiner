@@ -31,12 +31,10 @@ if (d3.select("svg").empty()) {
 else {
     svg = d3.select("svg");
 }
-
-d3.tsv("data.tsv", type, function(error, data) {
-    if (error) throw error;
-
-    x.domain(data.map(function(d) { return d.letter; }));
-    y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
+var data = Data.find({type: "Sentiment"}).fetch()[0]["sentiment"];
+//var data = [{name:"Locke", value:4}, {name:"Reyes",value:8}, {name:"Ford",value: 15},{name:"Jarrah",value: 16},{name:"Shephard",value: 23},{name:"Kwon",value: 42}];
+    x.domain(data.map(function(d) { return d.time["numberLong"]; }));
+    y.domain([0, d3.max(data, function(d) { return d.sentiValue; })]);
 
     svg.append("g")
         .attr("class", "x axis")
@@ -57,13 +55,7 @@ d3.tsv("data.tsv", type, function(error, data) {
         .data(data)
         .enter().append("rect")
         .attr("class", "bar")
-        .attr("x", function(d) { return x(d.letter); })
+        .attr("x", function(d) { return x(d.time["numberLong"]); })
         .attr("width", x.rangeBand())
-        .attr("y", function(d) { return y(d.frequency); })
-        .attr("height", function(d) { return height - y(d.frequency); });
-});
-
-function type(d) {
-    d.frequency = +d.frequency;
-    return d;
-}
+        .attr("y", function(d) { return y(d.sentiValue); })
+        .attr("height", function(d) { return height - y(d.sentiValue); });

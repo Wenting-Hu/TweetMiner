@@ -128,9 +128,6 @@ Meteor.methods({
                         //console.log("insert succeeded");
                         //console.log(val);
                     }
-
-                    var fs = Npm.require('fs');
-                    console.log(fs);
                 }
             });
 
