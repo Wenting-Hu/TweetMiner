@@ -1,0 +1,109 @@
+<template name="table">
+    <div id="bodywrap">
+
+        <!-- Top 10 Topic -->
+        <div class="col-md-4 col-sm-4">
+            <div class="buttonHidden"></div>
+            {{> topic10}}
+        </div>
+        <!-- Top 10 mentioned -->
+        <div class="col-md-4 col-sm-4">
+            <div class="buttonHidden"></div>
+            {{> mention10}}
+        </div>
+        <!-- Random selected 10 Topic -->
+        <div class="col-md-4 col-sm-4">
+            {{> refreshButton}}
+            {{> random10}}
+        </div>
+
+
+
+    </div> <!-- bodywrap -->
+
+    <div id="spaces"></div>
+</template>
+
+
+<!-- templates for each module-->
+<template name="topic10">
+    <div class="tweetfeed-container">
+        <div class="panel panel-default tweetfeed">
+            <div class="panel-body">
+                <!-- Text box for tweet content -->
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h2>Top 10 Hot Topics</h2>
+                    </div>
+                </div>
+                {{#each tweets}}
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <p>
+                                {{keyword}}
+                            </p>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="mention10">
+    <div class="tweetfeed-container">
+        <div class="panel panel-default tweetfeed">
+            <div class="panel-body">
+                <!-- Text box for tweet content -->
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h2>Top Mentioned Users</h2>
+                    </div>
+                </div>
+                {{#each tweets}}
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <p>
+                                {{keyword}}
+                            </p>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="random10">
+    <div class="tweetfeed-container">
+        <div class="panel panel-default tweetfeed">
+            <div class="panel-body">
+                <!-- Text box for tweet content -->
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h2>Random Hot Topics</h2>
+                    </div>
+                </div>
+                {{#each tweets}}
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <p>
+                                {{keyword}}
+                            </p>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="refreshButton">
+    <button class="button buttonRefresh"></button>
+</template>
+
+
+<template name="script_template">
+    <div id="script_div">
+    </div>
+</template>

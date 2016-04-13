@@ -1,0 +1,122 @@
+/*this is the style for the first page and titles*/
+.headerwrap {
+    height: 370px;
+    background-image: url("/ws_Typo_twitter_bird2.jpg");
+    width: 80%;
+    /* opacity: 0.5; */
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50px;
+    margin: auto;
+    filter: drop-shadow(8px 8px 10px #000000);
+    -webkit-filter: drop-shadow(8px 8px 10px #000000); /* Chrome, Safari, Opera */
+}
+
+.headerwrap h1 {
+    color: #52C3FF;
+    font-family: 'Raleway', sans-serif;
+    font-size: 80px;
+    font-weight: 800;
+    line-height: 72px;
+    margin: 0 0 100px;
+    margin-top: 250px;
+    text-align: right;
+    text-shadow: 8px 8px 8px #000000;
+    text-transform: uppercase;
+}
+
+.headerwrap h2 {
+    color: #FFFFFF;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 33px;
+    font-weight: bold;
+    line-height: 32px;
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.headerwrap a {
+    color: #52C3FF;
+    text-decoration: underline;
+}
+
+#headerwrap a:hover {
+    color: #a7e8f8;
+    text-decoration: underline;
+}
+
+
+/*this is the style for the tweets per seconds*/
+
+.unselectable {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* css formats for the gauge */
+.gauge .domain {
+    stroke-width: 2px;
+    stroke: #fff;
+}
+
+.gauge .tick line {
+    stroke: #fff;
+    stroke-width: 2px;
+}
+
+.gauge line {
+    stroke: #fff;
+}
+
+.gauge .arc, .gauge .cursor {
+    opacity: 0;
+}
+
+.gauge .major {
+    fill: #fff;
+    font-size: 20px;
+    font-family: 'Play', verdana, sans-serif;
+    font-weight: normal;
+}
+
+.gauge .indicator {
+    stroke: #EE3311;
+    fill: #000;
+    stroke-width: 4px;
+}
+
+/* css formats for the segment display */
+.segdisplay .on {
+    fill: #00FFFF;
+
+}
+
+.segdisplay .off {
+    fill: #00FFFF;
+    opacity: 0.15;
+}
+
+.textContainer {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+
+.textContainer h1 {
+    color: #FFFFFF;
+    font-family: 'Julius Sans One', sans-serif;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 33px;
+    font-weight: bold;
+    margin-top: -30px;
+}
+
+
+#spaces {
+    height: 100px;
+}

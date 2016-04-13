@@ -1,103 +1,139 @@
-Data = new Meteor.Collection("data");
+import { Meteor } from 'meteor/meteor';
+import { Accounts } from 'meteor/accounts-base';
 
-if (Meteor.isClient) {
-    Meteor.startup(function () {
-        Meteor.setInterval(function () {
-            Meteor.call("updateRank");
-        }, 1000 * 15);
+Accounts.ui.config({
+    passwordSignupFields: 'USERNAME_ONLY'
+});
 
-        Meteor.setInterval(function () {
-            Meteor.call("updateMention");
-        }, 1000 * 15);
 
+Meteor.startup(function () {
+    Meteor.setInterval(function () {
+        Meteor.call("updateRank");
+    }, 1000 * 15);
+
+    Meteor.setInterval(function () {
+        Meteor.call("updateMention");
+    }, 1000 * 15);
+
+    Meteor.call("refreshRandom");
+
+    Meteor.setInterval(function () {
+        Meteor.call("updateTraffic");
+    }, 1000);
+
+    Meteor.setInterval(function () {
+        Meteor.call("updateSentiment");
+    }, 1000 * 15);
+
+    Meteor.setInterval(function () {
+        Meteor.call("updateHeatMap");
+    }, 1000 * 15);
+
+    Meteor.setInterval(function () {
+        Meteor.call("updateWordcloud");
+    }, 1000 * 15);
+
+});
+
+
+Template.topic10.helpers({
+    tweets: function () {
+        var results = Data.find({type: "hashtag10"}).fetch()[0];
+        return results["entries"];
+    }
+
+});
+
+Template.mention10.helpers({
+    tweets: function () {
+        var results = Data.find({type: "mention"}).fetch()[0];
+        return results["entries"];
+    }
+
+});
+
+Template.random10.helpers({
+    tweets: function () {
+        var results = Data.find({type: "random10"}).fetch()[0];
+        return results["entries"];
+    }
+
+});
+
+
+Template.user.helpers({
+    tasks() {
+        return Tasks.find({}, {sort: {createdAt: -1}});
+    }
+});
+
+
+Template.user.events({
+    'submit .new-task'(event) {
+        // Prevent default browser form submit
+        event.preventDefault();
+
+        // Get value from form element
+        const target = event.target;
+        const text = target.text.value;
+
+        // Insert a task into the collection
+        Meteor.call('tasks.insert', text);
+
+        // Clear form
+        target.text.value = '';
+    }
+});
+
+Template.task.events({
+
+    'click .delete'() {
+        Meteor.call('tasks.remove', this._id);
+    }
+});
+
+
+Template.refreshButton.events({
+    "click .buttonRefresh": function () {
+        console.log("click buttion");
         Meteor.call("refreshRandom");
+    }
+});
 
-        Meteor.setInterval(function () {
-            Meteor.call("updateTraffic");
-        }, 1000);
-
-        Meteor.setInterval(function () {
-            Meteor.call("updateSentiment");
-        }, 1000 * 15);
-
-        Meteor.setInterval(function () {
-            Meteor.call("updateHeatMap");
-        }, 1000 * 15);
-
-        Meteor.setInterval(function () {
-            Meteor.call("updateWordcloud");
-        }, 1000 * 15);
-
+Template.script_template.onRendered(function () {
+    $(document).ready(function () {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "tweetspersec.js";
+        $("#script_div").append(script);
     });
+});
 
-
-    Template.topic10.helpers({
-        tweets: function () {
-            var results = Data.find({type: "hashtag10"}).fetch()[0];
-            return results["entries"];
-        }
-
+Template.sentiment.onRendered(function () {
+    $(document).ready(function () {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "sentiment.js";
+        $("#sentiment_div").append(script);
     });
+});
 
-    Template.mention10.helpers({
-        tweets: function () {
-            var results = Data.find({type: "mention"}).fetch()[0];
-            return results["entries"];
-        }
-
+Template.wordcloud.onRendered(function () {
+    $(document).ready(function () {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "wordcloud.js";
+        $("#wordcloud_div").append(script);
     });
+});
 
-    Template.random10.helpers({
-        tweets: function () {
-            var results = Data.find({type: "random10"}).fetch()[0];
-            return results["entries"];
-        }
-
+Template.heatmap.onRendered(function () {
+    $(document).ready(function () {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "heatmap.js";
+        $("#statesvg").append(script);
     });
+});
 
 
-    Template.refreshButton.events({
-        "click .buttonRefresh": function () {
-            console.log("click buttion");
-            Meteor.call("refreshRandom");
-        }
-    });
-
-    Template.script_template.onRendered(function() {
-        $(document).ready(function() {
-            var script = document.createElement("script");
-            script.type="text/javascript";
-            script.src = "tweetspersec.js";
-            $("#script_div").append(script);
-        });
-    });
-
-    Template.sentiment.onRendered(function() {
-        $(document).ready(function() {
-            var script = document.createElement("script");
-            script.type="text/javascript";
-            script.src = "sentiment.js";
-            $("#sentiment_div").append(script);
-        });
-    });
-
-    Template.wordcloud.onRendered(function() {
-        $(document).ready(function() {
-            var script = document.createElement("script");
-            script.type="text/javascript";
-            script.src = "wordcloud.js";
-            $("#wordcloud_div").append(script);
-        });
-    })
-
-    Template.heatmap.onRendered(function() {
-        $(document).ready(function() {
-            var script = document.createElement("script");
-            script.type="text/javascript";
-            script.src = "heatmap.js";
-            $("#statesvg").append(script);
-        });
-    })
-
-
-}

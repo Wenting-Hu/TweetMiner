@@ -32,6 +32,10 @@ else {
     svg = d3.select("svg");
 }
 var data = Data.find({type: "Sentiment"}).fetch()[0]["sentiment"];
+/*for (i = 0; i < data.length; i++) {
+    var dat = new Date(data.time["numberLong"]);
+    data[i].time["numberLong"] = dat.getHours().toString();
+}*/
 //var data = [{name:"Locke", value:4}, {name:"Reyes",value:8}, {name:"Ford",value: 15},{name:"Jarrah",value: 16},{name:"Shephard",value: 23},{name:"Kwon",value: 42}];
     x.domain(data.map(function(d) { return d.time["numberLong"]; }));
     y.domain([0, d3.max(data, function(d) { return d.sentiValue; })]);
@@ -58,4 +62,6 @@ var data = Data.find({type: "Sentiment"}).fetch()[0]["sentiment"];
         .attr("x", function(d) { return x(d.time["numberLong"]); })
         .attr("width", x.rangeBand())
         .attr("y", function(d) { return y(d.sentiValue); })
-        .attr("height", function(d) { return height - y(d.sentiValue); });
+        .attr("height", function(d) { return height - y(d.sentiValue); })
+        .text(function(d) { return new Date(d.time["numberLong"]); });
+

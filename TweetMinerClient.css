@@ -3,213 +3,30 @@
  */
 
 body {
-    background-color: #15283B;
-    /*background-image: url("ws_Typo_twitter_bird_1366x768 copy.jpg");*/
-    background-position: top right;
+    background-color: #001A57;
+    /*background-image: url("bg1.jpg");*/
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: 0px 0px;
     background-repeat: no-repeat;
     font-family: "Lato";
     font-weight: 500;
     font-size: 20px;
-    color: #555;
+    color: white;
 }
 
-/*this is the style for the first page and titles*/
-#headerwrap {
-    height: 550px;
-    background-image: url("ws_Typo_twitter_bird_1366x768 copy.jpg");
-    width: 100%;
-}
 
-#headerwrap h1 {
-    color: #52C3FF;
-    font-family: 'Raleway', sans-serif;
-    font-size: 80px;
-    font-weight: 800;
-    line-height: 72px;
-    margin: 0 0 100px;
-    margin-top: 250px;
-    text-align: right;
-    text-shadow: 8px 8px 8px #000000;
-    text-transform: uppercase;
-}
-
-#headerwrap h2 {
-    color: #FFFFFF;
-    font-family: 'Julius Sans One', sans-serif;
-    font-size: 33px;
-    font-weight: bold;
-    line-height: 32px;
-    margin-top: 200px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#headerwrap a {
-    color: #52C3FF;
-    text-decoration: underline;
-}
-
-#headerwrap a:hover {
-    color: #a7e8f8;
-    text-decoration: underline;
-}
-
-#spaces {
-    height: 200px;
-}
 
 /*this is the style for the bodypart*/
 #bodywrap {
-    background-image: url(separator.png);
+    height: 400px;
+    background-image: url(/separator2.png);
+    background-size: 100% 50%;
     background-repeat: no-repeat;
 }
 
 
-/*this is the style for the Buttons*/
 
-.buttonHidden { /*for holding space*/
-    display: block;
-    width: 150px;
-    height: 120px;
-    margin-left: auto;
-    margin-right: auto;
-    background-image: url(autoupdate.png);
-    background-size: 100%;
-    background-position: center top;
-    background-repeat: no-repeat;
-    filter: drop-shadow(8px 8px 10px #000000);
-    -webkit-filter: drop-shadow(8px 8px 10px #000000); /* Chrome, Safari, Opera */
-}
-
-.buttonRefresh { /*refresh Button*/
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    font-weight: normal;
-    text-align: center;
-    text-decoration: none;
-    display: block;
-    width: 120px;
-    height: 120px;
-    background: url(refreshbutton.png);
-    background-repeat: no-repeat;
-    background-position: center top;
-    margin-left: auto;
-    margin-right: auto;
-    background-size: 100%;
-    filter: drop-shadow(8px 8px 10px #000000);
-    -webkit-filter: drop-shadow(8px 8px 10px #000000); /* Chrome, Safari, Opera */
-    border-radius: 50%;
-}
-
-/*this is the style for all the tables constructed*/
-
-#table {
-    -webkit-user-select: text;
-    -khtml-user-select: text;
-    -moz-user-select: text;
-    -o-user-select: text;
-    user-select: text;
-}
-
-.tweetfeed {
-    background: url(main_bg.png);
-    text-align: center;
-}
-
-.tweetfeed-container {
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    -webkit-filter: drop-shadow(8px 8px 10px #000000); /* Chrome, Safari, Opera */
-    filter: drop-shadow(8px 8px 10px #000000);
-}
-
-.tweetfeed-container h2 {
-    color: #FFFFFF;
-    font-family: 'Julius Sans One', sans-serif;
-    margin-right: auto;
-    margin-left: auto;
-    font-size: 27px;
-    font-weight: bold;
-}
-
-.tweetfeed-container p {
-    color: #172E46;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-right: auto;
-    margin-left: auto;
-    font-size: 22px;
-    font-weight: 700;
-}
-
-/*this is the style for the tweets per seconds*/
-
-.unselectable {
-    -moz-user-select: -moz-none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-/* css formats for the gauge */
-.gauge .domain {
-    stroke-width: 2px;
-    stroke: #fff;
-}
-
-.gauge .tick line {
-    stroke: #fff;
-    stroke-width: 2px;
-}
-
-.gauge line {
-    stroke: #fff;
-}
-
-.gauge .arc, .gauge .cursor {
-    opacity: 0;
-}
-
-.gauge .major {
-    fill: #fff;
-    font-size: 20px;
-    font-family: 'Play', verdana, sans-serif;
-    font-weight: normal;
-}
-
-.gauge .indicator {
-    stroke: #EE3311;
-    fill: #000;
-    stroke-width: 4px;
-}
-
-/* css formats for the segment display */
-.segdisplay .on {
-    fill: #00FFFF;
-
-}
-
-.segdisplay .off {
-    fill: #00FFFF;
-    opacity: 0.15;
-}
-
-.textContainer {
-    margin-right: auto;
-    margin-left: auto;
-    display: block;
-}
-
-.textContainer h1 {
-    color: #FFFFFF;
-    font-family: 'Julius Sans One', sans-serif;
-    margin-right: auto;
-    margin-left: auto;
-    font-size: 33px;
-    font-weight: bold;
-    margin-top: -30px;
-}
 
 /*Reserved for future use*/
 .my-container {
@@ -232,48 +49,60 @@ body {
 
 
 
+
+/*navigation module*/
+
 nav {
-    margin : 50px auto;
+    margin : 5px auto;
     width  : 100%;
 }
-menu {
-    border-radius : 3px;
+.menu2 {
+    border-radius : 30px;
 }
-menu:after , menu:before {
+.menu2:after , menu:before {
     display : block;
     content : ' ';
 }
-menu:after {
-    clear : both;
-}
+
+/*No floating elements allowed on the left or the right side of Menu*/
+/*.menu2:after {
+    clear : left;
+}*/
 li {
-    list-style-type : none;
-    background      : linear-gradient(rgba(220,220,255,0.4) 85%, rgba(255,255,255,0.5) 100%);
-    float   : left;
-    cursor  : pointer;
-    padding : 3px 10px;
-    border-top    : 2px solid rgba(200,200,255,0.5);
-    border-bottom : 2px solid rgba(50,50,50,0.4);
+    list-style-type: none;
+    background: linear-gradient(rgba(0, 47, 81, 0.36) 85%, #000000 100%);
+    float: right;
+    cursor: pointer;
+    padding: 10px 10px;
+    border-top: 3px solid rgba(200,200,255,0.5);
+    border-bottom: 3px solid rgba(50,50,50,0.4);
+
 }
-li:first-child {
-    border-radius : 5px 0 0 5px;
+li a {
+    color : white;
+
 }
 li:last-child {
-    border-radius : 0 5px 5px 0;
+    border-radius : 10px 0 0 10px;
+    border-left : 3px solid rgba(50,50,50,0.4);
+}
+li:first-child {
+    border-radius : 0 10px 10px 0;
+    border-right    : 3px solid rgba(200,200,255,0.5);
 }
 a {
     display : block;
     padding : 10px 13px;
-    font-size : 26px;
+    font-size : 36px;
     text-decoration : none;
     border-radius   : 5px;
     position        : relative;
     top   : 0;
-    color : #FFF;
+    color : #000000;
     transition : all .4s;
 }
 li:hover a {
-    top   : -20px;
+    top   : -10px;
     color : #4eacff;
     background-color: #fff;
     box-shadow : 0 0 5px 0 rgba(255, 255, 255, 0.7);
@@ -295,21 +124,21 @@ li:hover a:after {
     transition   : all .4s;
 }
 /*************************************/
-.menu2 {
+menu {
     width : 100%;
 }
-.menu2 a {
-    font-family : georgia;
-    font-size   : 14px;
-    font-style  : italic;
+menu a {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size   : 24px;
+    /*font-style  : italic;*/
     text-transform : capitalize;
 }
-.menu2 li {
+menu li {
     border-right  : 1px solid rgba(200,200,255,0.5);
     border-left   : 1px solid rgba(40,40,40,0.2);
 }
 .selected {
-    top   : -20px;
+    top   : -10px;
     color : #4eacff;
     background-color: #fff;
     box-shadow : 0 0 5px 0 rgba(255, 255, 255, 0.7);
@@ -319,3 +148,30 @@ li:hover a:after {
     border-color : white transparent transparent transparent;
     transition   : all .4s;
 }
+
+.login li{
+    float   : left;
+    height: 74px;
+}
+
+.login li:last-child {
+    border-radius : 10px 10px 10px 10px;
+
+}
+
+.content1{
+    margin: auto;
+    width: 100%;
+    height: 700px;
+    position: absolute;
+    left: 6px;
+    top: 198px;
+    z-index: 1;
+    overflow: hidden;
+    border-bottom: 9px solid #718da6;
+    background: url(/blurseperater.png) 50% 50% no-repeat;
+    background-size: 100% 100%;
+    text-align: center;
+}
+.content1 ul{ }
+.content1 ul li{ width:988px; height:514px; border-bottom: 9px solid #718da6; background: url(blurseperater.png) 0 0 no-repeat; position:absolute;}

@@ -14,143 +14,28 @@
 
 
 <body>
+
+
+<menu>
+    <div class="login">
+        <li>{{> loginButtons}}</li>
+    </div>
+
+
 <nav class="menu2">
-    <menu>
-        <li><a href="/">HOME</a></li>
         <li><a href="/heatmap">HEATMAP</a></li>
         <li><a href="/sentiment">SENTIMENT</a></li>
-
         <li><a href="/wordcloud">WORDCLOUD</a></li>
         <li><a href="/table">TOP10</a></li>
-    </menu>
+        <li><a href="/">HOME</a></li>
 </nav>
-<!-- headerwrap -->
-<!--<div id="headerwrap"> -->
 
-<!--</div> --><!-- headerwrap -->
+
+</menu>
+
 
 {{>Router}}
 
 </body>
 
-<template name="homepage">
-    <div id="headerwrap">
 
-    </div>
-</template>
-<template name="table">
-    <div id="bodywrap">
-        <div id="spaces"></div>
-        <!-- Top 10 Topic -->
-        <div class="col-md-4 col-sm-4">
-            <div class="buttonHidden"></div>
-            {{> topic10}}
-        </div>
-        <!-- Top 10 mentioned -->
-        <div class="col-md-4 col-sm-4">
-            <div class="buttonHidden"></div>
-            {{> mention10}}
-        </div>
-        <!-- Random selected 10 Topic -->
-        <div class="col-md-4 col-sm-4">
-            {{> refreshButton}}
-            {{> random10}}
-        </div>
-
-
-        <!-- Tweet Per Second -->
-        <div align="center">
-            <span id="speedometer"></span>
-        </div>
-        {{> script_template}}
-        <div align="center">
-            <div class="textContainer"><h1> Tweets Per Second</h1></div>
-        </div>
-    </div> <!-- bodywrap -->
-
-    <div id="spaces"></div>
-</template>
-
-
-<!-- templates for each module-->
-<template name="topic10">
-    <div class="tweetfeed-container">
-        <div class="panel panel-default tweetfeed">
-            <div class="panel-body">
-                <!-- Text box for tweet content -->
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h2>Top 10 Hot Topics</h2>
-                    </div>
-                </div>
-                {{#each tweets}}
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <p>
-                            {{keyword}}
-                            </p>
-                        </div>
-                    </div>
-                {{/each}}
-            </div>
-        </div>
-    </div>
-</template>
-
-<template name="mention10">
-    <div class="tweetfeed-container">
-        <div class="panel panel-default tweetfeed">
-            <div class="panel-body">
-                <!-- Text box for tweet content -->
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h2>Top Mentioned Users</h2>
-                    </div>
-                </div>
-                {{#each tweets}}
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <p>
-                            {{keyword}}
-                            </p>
-                        </div>
-                    </div>
-                {{/each}}
-            </div>
-        </div>
-    </div>
-</template>
-
-<template name="random10">
-    <div class="tweetfeed-container">
-        <div class="panel panel-default tweetfeed">
-            <div class="panel-body">
-                <!-- Text box for tweet content -->
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h2>Random Hot Topics</h2>
-                    </div>
-                </div>
-                {{#each tweets}}
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <p>
-                            {{keyword}}
-                            </p>
-                        </div>
-                    </div>
-                {{/each}}
-            </div>
-        </div>
-    </div>
-</template>
-
-<template name="refreshButton">
-    <button class="button buttonRefresh"></button>
-</template>
-
-
-<template name="script_template">
-    <div id="script_div">
-    </div>
-</template>
