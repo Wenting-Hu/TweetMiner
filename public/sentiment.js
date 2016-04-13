@@ -1,6 +1,8 @@
 /**
  * Created by huwenting on 3/21/16.
  */
+
+
 var margin = {top: 20, right: 20, bottom: 30, left: 40},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
@@ -32,10 +34,13 @@ else {
     svg = d3.select("svg");
 }
 var data = Data.find({type: "Sentiment"}).fetch()[0]["sentiment"];
-/*for (i = 0; i < data.length; i++) {
-    var dat = new Date(data.time["numberLong"]);
-    data[i].time["numberLong"] = dat.getHours().toString();
-}*/
+
+for (i = 0; i < data.length; i++) {
+    var dat = new Date(Number(data[i].time["numberLong"]));
+    data[i].time["numberLong"] = dat.getMonth().toString() + "/"+ dat.getDate().toString() + " " + dat.getHours().toString() + ":" + dat.getMinutes().toString();
+    console.log(data.length);
+    console.log(data[i].time["numberLong"]);
+}
 //var data = [{name:"Locke", value:4}, {name:"Reyes",value:8}, {name:"Ford",value: 15},{name:"Jarrah",value: 16},{name:"Shephard",value: 23},{name:"Kwon",value: 42}];
     x.domain(data.map(function(d) { return d.time["numberLong"]; }));
     y.domain([0, d3.max(data, function(d) { return d.sentiValue; })]);
@@ -62,6 +67,5 @@ var data = Data.find({type: "Sentiment"}).fetch()[0]["sentiment"];
         .attr("x", function(d) { return x(d.time["numberLong"]); })
         .attr("width", x.rangeBand())
         .attr("y", function(d) { return y(d.sentiValue); })
-        .attr("height", function(d) { return height - y(d.sentiValue); })
-        .text(function(d) { return new Date(d.time["numberLong"]); });
+        .attr("height", function(d) { return height - y(d.sentiValue); });
 
