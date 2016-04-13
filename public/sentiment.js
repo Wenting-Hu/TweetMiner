@@ -65,7 +65,7 @@ for (i = 0; i < data.length; i++) {
         .enter().append("rect")
         .attr("class", "bar")
         .attr("x", function(d) { return x(d.time["numberLong"]); })
-        .attr("width", x.rangeBand())
+        .attr("width", x.rangeBand() - 13)
         .attr("y", function(d) { return y(d.sentiValue); })
         .attr("height", function(d) { return height - y(d.sentiValue); });
 
