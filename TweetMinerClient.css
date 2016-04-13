@@ -19,8 +19,9 @@ body {
     background: url(main_bg.png);
     text-align: center;
     margin: auto;
-    padding-left: 20%;
-    padding-right: 20%;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 5px 5px 5px 5px;
 }
 
 /*this is the style for the bodypart*/
@@ -82,6 +83,7 @@ li {
     padding: 10px 10px;
     border-top: 3px solid rgba(200,200,255,0.5);
     border-bottom: 3px solid rgba(50,50,50,0.4);
+    height: 74px;
 
 }
 li a {

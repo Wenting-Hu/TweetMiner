@@ -37,9 +37,9 @@ var data = Data.find({type: "Sentiment"}).fetch()[0]["sentiment"];
 
 for (i = 0; i < data.length; i++) {
     var dat = new Date(Number(data[i].time["numberLong"]));
-    data[i].time["numberLong"] = dat.getMonth().toString() + "/"+ dat.getDate().toString() + " " + dat.getHours().toString() + ":" + dat.getMinutes().toString();
+    data[i].time["numberLong"] = (dat.getMonth() + 1) + "/"+ dat.getDate().toString() + " " + dat.getHours().toString() + ":" + dat.getMinutes().toString();
     console.log(data.length);
-    console.log(data[i].time["numberLong"]);
+    console.log(dat);
 }
 //var data = [{name:"Locke", value:4}, {name:"Reyes",value:8}, {name:"Ford",value: 15},{name:"Jarrah",value: 16},{name:"Shephard",value: 23},{name:"Kwon",value: 42}];
     x.domain(data.map(function(d) { return d.time["numberLong"]; }));
