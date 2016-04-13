@@ -15,7 +15,13 @@ body {
     color: white;
 }
 
-
+.textbox{
+    background: url(main_bg.png);
+    text-align: center;
+    margin: auto;
+    padding-left: 20%;
+    padding-right: 20%;
+}
 
 /*this is the style for the bodypart*/
 #bodywrap {
