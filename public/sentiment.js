@@ -33,17 +33,27 @@ if (d3.select("svg").empty()) {
 else {
     svg = d3.select("svg");
 }
+
 var data = Data.find({type: "Sentiment"}).fetch()[0]["sentiment"];
 
 for (i = 0; i < data.length; i++) {
     var dat = new Date(Number(data[i].time["numberLong"]));
     data[i].time["numberLong"] = (dat.getMonth() + 1) + "/"+ dat.getDate().toString() + " " + dat.getHours().toString() + ":" + dat.getMinutes().toString();
-    console.log(data.length);
-    console.log(dat);
+    /*console.log(data.length);
+    console.log(dat);*/
 }
+
+
+
 //var data = [{name:"Locke", value:4}, {name:"Reyes",value:8}, {name:"Ford",value: 15},{name:"Jarrah",value: 16},{name:"Shephard",value: 23},{name:"Kwon",value: 42}];
-    x.domain(data.map(function(d) { return d.time["numberLong"]; }));
-    y.domain([0, d3.max(data, function(d) { return d.sentiValue; })]);
+
+//function redraw() {
+    x.domain(data.map(function (d) {
+        return d.time["numberLong"];
+    }));
+    y.domain([0, d3.max(data, function (d) {
+        return d.sentiValue;
+    })]);
 
     svg.append("g")
         .attr("class", "x axis")
@@ -60,12 +70,39 @@ for (i = 0; i < data.length; i++) {
         .style("text-anchor", "end")
         .text("Trump Support rate");
 
+
     svg.selectAll(".bar")
         .data(data)
+
+
         .enter().append("rect")
         .attr("class", "bar")
-        .attr("x", function(d) { return x(d.time["numberLong"]); })
+        .attr("x", function (d) {
+            return x(d.time["numberLong"]);
+        })
         .attr("width", x.rangeBand() - 13)
-        .attr("y", function(d) { return y(d.sentiValue); })
-        .attr("height", function(d) { return height - y(d.sentiValue); });
+        .attr("y", function (d) {
+            return y(d.sentiValue);
+        })
+        .attr("height", function (d) {
+            return height - y(d.sentiValue);
+        });
+//}
 
+setInterval(updatesenti, 1000);
+
+function updatesenti() {
+    dataprepare = Data.find({type: "Sentiment"}).fetch()[0]["sentiment"];
+
+    for (i = 0; i < dataprepare.length; i++) {
+        var dat = new Date(Number(dataprepare[i].time["numberLong"]));
+        data[i].time["numberLong"] = (dat.getMonth() + 1) + "/"+ dat.getDate().toString() + " " + dat.getHours().toString() + ":" + dat.getMinutes().toString();
+        console.log(data.length);
+        console.log(dat);
+    }
+}
+
+/*setInterval(function() {
+    data.shift();
+    redraw();
+}, 1000);*/

@@ -18,7 +18,7 @@ var ar = $.map(newdata, function(o){return o.count;});
 var highest = Math.max.apply(Math,ar);
     console.log("updating cloud");
     for (i = 0; i < newdata.length; i++) {
-        frequency_list.push({"text": newdata[i]["keyword"], "size": newdata[i]["count"] /highest * 200});
+        frequency_list.push({"text": newdata[i]["keyword"], "size": newdata[i]["count"] /highest * 150});
     }
 //console.log(frequency_list.length);
 
