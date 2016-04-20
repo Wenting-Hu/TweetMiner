@@ -1,24 +1,24 @@
 .bar {
-    fill: #52C3FF;
+    fill: #5D9EE8;
 }
 
 .bar:hover {
-    fill: steelblue;
+    fill: #4975E7;
 }
 
 .axis {
     font: 15px sans-serif;
-    fill: #00FFFF;
+    fill: #5D9EE8;
 }
 
 .axis path,
 .axis line {
     fill: none;
-    stroke: #52C3FF;
+    stroke: #4975E7;
     shape-rendering: crispEdges;
 }
 
 .x.axis path {
-    stroke: #52C3FF;
+    stroke: #4975E7;
 }
 

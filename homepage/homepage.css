@@ -12,39 +12,7 @@
     -webkit-filter: drop-shadow(8px 8px 10px #000000); /* Chrome, Safari, Opera */
 }
 
-.headerwrap h1 {
-    color: #52C3FF;
-    font-family: 'Raleway', sans-serif;
-    font-size: 80px;
-    font-weight: 800;
-    line-height: 72px;
-    margin: 0 0 100px;
-    margin-top: 250px;
-    text-align: right;
-    text-shadow: 8px 8px 8px #000000;
-    text-transform: uppercase;
-}
 
-.headerwrap h2 {
-    color: #FFFFFF;
-    font-family: 'Julius Sans One', sans-serif;
-    font-size: 33px;
-    font-weight: bold;
-    line-height: 32px;
-    margin-top: 200px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.headerwrap a {
-    color: #52C3FF;
-    text-decoration: underline;
-}
-
-#headerwrap a:hover {
-    color: #a7e8f8;
-    text-decoration: underline;
-}
 
 
 /*this is the style for the tweets per seconds*/
