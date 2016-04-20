@@ -16,7 +16,7 @@ var gauge = iopctrl.arcslider()
     .indicator(iopctrl.defaultGaugeIndicator);
 gauge.axis().orient("in")
     .normalize(true)
-    .ticks(12)
+    .ticks(7)
     .tickSubdivide(3)
     .tickSize(10, 8, 10)
     .tickPadding(5)
