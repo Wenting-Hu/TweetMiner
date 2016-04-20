@@ -21,7 +21,7 @@ gauge.axis().orient("in")
     .tickSize(10, 8, 10)
     .tickPadding(5)
     .scale(d3.scale.linear()
-        .domain([0, 4000])
+        .domain([0, 7000])
         .range([-3*Math.PI/4, 3*Math.PI/4]));
 
 var segDisplay = iopctrl.segdisplay()

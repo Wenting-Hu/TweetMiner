@@ -14,6 +14,7 @@ setTimeout(function() {
     console.log(Data)
     console.log("data.find heatmap:")
     console.log(Data.find({type: "HeatMap"}).fetch())
+
     var newmapdata = Data.find({type: "HeatMap"}).fetch()[0]["heatmap"];
     var arr = $.map(newmapdata, function(o){return o.count;});
     var highest = Math.max.apply(Math,arr);
