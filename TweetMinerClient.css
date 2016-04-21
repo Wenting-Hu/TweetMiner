@@ -73,6 +73,7 @@ nav {
     margin : 5px auto;
     width  : 100%;
     height: 74px;
+    z-index:100;
 }
 .menu2 {
     border-radius : 30px;
@@ -81,7 +82,12 @@ nav {
     display : block;
     content : ' ';
 }
-
+#menubutton {
+    float: left;
+    background-image: url("show-menu-icon.png");
+    background-size: cover;
+    height:44px;
+}
 /*No floating elements allowed on the left or the right side of Menu*/
 /*.menu2:after {
     clear : left;
