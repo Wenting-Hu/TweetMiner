@@ -12,9 +12,6 @@
     -webkit-filter: drop-shadow(8px 8px 10px #000000); /* Chrome, Safari, Opera */
 }
 
-
-
-
 /*this is the style for the tweets per seconds*/
 
 .unselectable {
@@ -83,7 +80,6 @@
     font-weight: bold;
     margin-top: -30px;
 }
-
 
 #spaces {
     height: 100px;

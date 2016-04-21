@@ -1,17 +1,15 @@
-
 <template name="homepage">
-<div id="bodywrap">
+    <div id="bodywrap">
 
-<div id="spaces"></div>
 
-       <div class = headerwrap></div>
-    <!-- Tweet Per Second -->
-    <div align="center">
-        <span id="speedometer"></span>
+        <div class=headerwrap></div>
+        <!-- Tweet Per Second -->
+        <div align="center">
+            <span id="speedometer"></span>
+        </div>
+        {{> script_template}}
+        <div align="center">
+            <div class="textContainer"><h1> Tweets Per Second</h1></div>
+        </div>
     </div>
-    {{> script_template}}
-    <div align="center">
-        <div class="textContainer"><h1> Tweets Per Second</h1></div>
-    </div>
-</div>
 </template>

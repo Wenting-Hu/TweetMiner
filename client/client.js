@@ -1,9 +1,11 @@
 import { Meteor } from 'meteor/meteor';
-import { Accounts } from 'meteor/accounts-base';
+/*import { Accounts } from 'meteor/accounts-base';
 
-Accounts.ui.config({
-    passwordSignupFields: 'USERNAME_ONLY'
-});
+
+
+ Accounts.ui.config({
+ passwordSignupFields: 'USERNAME_ONLY'
+ });*/
 
 
 Meteor.startup(function () {
@@ -57,41 +59,7 @@ Template.random10.helpers({
         var results = Data.find({type: "random10"}).fetch()[0];
         return results["entries"];
     }
-
 });
-
-
-Template.user.helpers({
-    tasks() {
-        return Tasks.find({}, {sort: {createdAt: -1}});
-    }
-});
-
-
-Template.user.events({
-    'submit .new-task'(event) {
-        // Prevent default browser form submit
-        event.preventDefault();
-
-        // Get value from form element
-        const target = event.target;
-        const text = target.text.value;
-
-        // Insert a task into the collection
-        Meteor.call('tasks.insert', text);
-
-        // Clear form
-        target.text.value = '';
-    }
-});
-
-Template.task.events({
-
-    'click .delete'() {
-        Meteor.call('tasks.remove', this._id);
-    }
-});
-
 
 Template.refreshButton.events({
     "click .buttonRefresh": function () {

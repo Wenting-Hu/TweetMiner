@@ -8,7 +8,7 @@ function tooltipHtml(n, d){	/* function to create html content string in tooltip
         "</table>";
 }
 
-setTimeout(function() {
+
     var sampleData ={};
     console.log("data;")
     console.log(Data)
@@ -28,6 +28,6 @@ setTimeout(function() {
 
     /* draw states on id #statesvg */
     uStates.draw("#statesvg", sampleData, tooltipHtml);
-}, 1000);
+
 
 
