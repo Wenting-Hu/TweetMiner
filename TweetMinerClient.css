@@ -94,7 +94,7 @@ nav {
 }*/
 li {
     list-style-type: none;
-    background: linear-gradient(rgba(0, 47, 81, 0.36) 85%, #000000 100%);
+    background: linear-gradient(rgb(0, 26, 87) 85%, #000000 100%);
     float: right;
     margin:auto;
     cursor: pointer;
@@ -102,20 +102,21 @@ li {
     border-top: 3px solid rgba(200,200,255,0.5);
     border-bottom: 3px solid rgba(50,50,50,0.4);
     height: 74px;
+    border-radius : 10px 10px 10px 10px;
 
 }
 li a {
     color : white;
 
 }
-li:last-child {
+/*li:last-child {
     border-radius : 10px 0 0 10px;
     border-left : 3px solid rgba(50,50,50,0.4);
 }
 li:first-child {
     border-radius : 0 10px 10px 0;
     border-right    : 3px solid rgba(200,200,255,0.5);
-}
+}*/
 a {
     display : block;
     padding : 10px 13px;
