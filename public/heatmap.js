@@ -10,10 +10,10 @@ function tooltipHtml(n, d){	/* function to create html content string in tooltip
 
 
     var sampleData ={};
-    console.log("data;")
+    /*console.log("data;")
     console.log(Data)
     console.log("data.find heatmap:")
-    console.log(Data.find({type: "HeatMap"}).fetch())
+    console.log(Data.find({type: "HeatMap"}).fetch())*/
 
     var newmapdata = Data.find({type: "HeatMap"}).fetch()[0]["heatmap"];
     var arr = $.map(newmapdata, function(o){return o.count;});

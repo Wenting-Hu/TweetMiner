@@ -1,8 +1,5 @@
 import { Meteor } from 'meteor/meteor';
 /*import { Accounts } from 'meteor/accounts-base';
-
-
-
  Accounts.ui.config({
  passwordSignupFields: 'USERNAME_ONLY'
  });*/
@@ -37,7 +34,7 @@ Meteor.startup(function () {
 
 });
 
-
+//passing values to top 10 table
 Template.topic10.helpers({
     tweets: function () {
         var results = Data.find({type: "hashtag10"}).fetch()[0];
@@ -61,6 +58,8 @@ Template.random10.helpers({
     }
 });
 
+
+//refresh button event
 Template.refreshButton.events({
     "click .buttonRefresh": function () {
         console.log("click buttion");
@@ -68,6 +67,8 @@ Template.refreshButton.events({
     }
 });
 
+
+//appending d3.js to each module
 Template.script_template.onRendered(function () {
     $(document).ready(function () {
         var script = document.createElement("script");

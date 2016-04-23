@@ -9,33 +9,35 @@ var frequency_list = [];
 //frequency_list.push({"text":"new", "size":100});
 var fill = d3.scale.category20();
 var color = d3.scale.linear()
-    .domain([0,1,2,3,4,5,6,10,15,20,100])
+    .domain([0, 1, 2, 3, 4, 5, 6, 10, 15, 20, 100])
     .range(["#00FFFF", "#00E5E5", "#19E5E5", "#19CCCC", "#33CCCC", "#33B2B2", "#4CB2B2", "#4C9999", "#669999", "#667F7F", "#7F7F7F", "#666666"]);
 
 //function updateCloud() {
-    var newdata = Data.find({type: "WordCloud"}).fetch()[0]["wordcloud"];
-var ar = $.map(newdata, function(o){return o.count;});
-var highest = Math.max.apply(Math,ar);
-    console.log("updating cloud");
-    for (i = 0; i < newdata.length; i++) {
-        frequency_list.push({"text": newdata[i]["keyword"], "size": newdata[i]["count"] /highest * 150});
-    }
+var newdata = Data.find({type: "WordCloud"}).fetch()[0]["wordcloud"];
+var ar = $.map(newdata, function (o) {
+    return o.count;
+});
+var highest = Math.max.apply(Math, ar);
+//console.log("updating cloud");
+for (i = 0; i < newdata.length; i++) {
+    frequency_list.push({"text": newdata[i]["keyword"], "size": newdata[i]["count"] / highest * 150});
+}
 //console.log(frequency_list.length);
 
 
-    d3.layout.cloud().size([1200, 600])
-        .words(frequency_list)
-        //.rotate(function() { return ~~(Math.random() * 2) * 90; })
-        .rotate(0)
-        .text(function (d) {
-            return d.text;
-        })
-        .padding(10)
-        .fontSize(function (d) {
-            return d.size;
-        })
-        .on("end", draw)
-        .start();
+d3.layout.cloud().size([1200, 600])
+    .words(frequency_list)
+    //.rotate(function() { return ~~(Math.random() * 2) * 90; })
+    .rotate(0)
+    .text(function (d) {
+        return d.text;
+    })
+    .padding(10)
+    .fontSize(function (d) {
+        return d.size;
+    })
+    .on("end", draw)
+    .start();
 
 
 function draw(words) {
@@ -76,40 +78,40 @@ function draw(words) {
 
 /*
 
-var fill = d3.scale.category20();
+ var fill = d3.scale.category20();
 
-d3.layout.cloud().size([300, 300])
-    .words([
-        ".NET", "Silverlight", "jQuery", "CSS3", "HTML5", "JavaScript", "SQL","C#"].map(function(d) {
-        return {text: d, size: 10 + Math.random() * 50};
-    }))
-    .rotate(function() { return ~~(Math.random() * 2) * 90; })
-    .font("Impact")
-    .fontSize(function(d) { return d.size; })
-    .on("end", draw)
-    .start();
+ d3.layout.cloud().size([300, 300])
+ .words([
+ ".NET", "Silverlight", "jQuery", "CSS3", "HTML5", "JavaScript", "SQL","C#"].map(function(d) {
+ return {text: d, size: 10 + Math.random() * 50};
+ }))
+ .rotate(function() { return ~~(Math.random() * 2) * 90; })
+ .font("Impact")
+ .fontSize(function(d) { return d.size; })
+ .on("end", draw)
+ .start();
 
-function draw(words) {
-    d3.select("body").append("svg")
-        .attr("width", 300)
-        .attr("height", 300)
-        .append("g")
-        .attr("transform", "translate(150,150)")
-        .selectAll("text")
-        .data(words)
-        .enter().append("text")
-        .style("font-size", function (d) {
-            return d.size + "px";
-        })
-        .style("font-family", "Impact")
-        .style("fill", function (d, i) {
-            return fill(i);
-        })
-        .attr("text-anchor", "middle")
-        .attr("transform", function (d) {
-            return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-        })
-        .text(function (d) {
-            return d.text;
-        })
-}*/
+ function draw(words) {
+ d3.select("body").append("svg")
+ .attr("width", 300)
+ .attr("height", 300)
+ .append("g")
+ .attr("transform", "translate(150,150)")
+ .selectAll("text")
+ .data(words)
+ .enter().append("text")
+ .style("font-size", function (d) {
+ return d.size + "px";
+ })
+ .style("font-family", "Impact")
+ .style("fill", function (d, i) {
+ return fill(i);
+ })
+ .attr("text-anchor", "middle")
+ .attr("transform", function (d) {
+ return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+ })
+ .text(function (d) {
+ return d.text;
+ })
+ }*/

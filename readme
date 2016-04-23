@@ -1,8 +1,6 @@
 This is Our website:
 
-http://tweetminer.meteor.com
-(Works in any browser including iphone)
-
+http://tweetminerweb.herokuapp.com/
 
 1. the first table displays top 10 tweet topics------Auto updates every 15 seconds
 2. the second table displays top 10 mentioned users ---------Auto update every 15 seconds
