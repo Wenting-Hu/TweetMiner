@@ -2,7 +2,59 @@ This is Our website:
 
 http://tweetminerweb.herokuapp.com/
 
-1. the first table displays top 10 tweet topics------Auto updates every 15 seconds
-2. the second table displays top 10 mentioned users ---------Auto update every 15 seconds
-3. the third table displays random hot topics-------Click the Button above it to get new topics!
-4. the "graphic meter" at the bottom displays Real Time Tweet Per Second.
+1.Menu
+Menu bar will be hidden when window are too narrow for display, instead, a blue menu toggle button will show/hide the menu bar.
+
+2. Homepage
+Access:
+Homepage could be accessed by http://tweetminerweb.herokuapp.com, or by pressing “Home” on menu
+bar.
+Function:
+Homepage displays the logo of TweetMiner web, as well as a "graphic meter" at the bottom displays Real Time Tweet Per Second.
+
+3.Top 10
+Access:
+• Top 10 ranker could be accessed by http://tweetminerweb.herokuapp.com/table or by pressing
+“Top10” on menu bar.
+Function:
+Top 10 ranker page displays 3 tables:
+• Top 10 hot topics: Displaying top 10 keywords of tweets in the current minute, auto refreshing
+every minute
+• Top 10 mentioned users: Displaying top 10 mentioned users in the current minute, auto refreshing
+every minute
+• Random 10 hot topics: Press the “refresh button” on top of the table to generate a new list of hot
+topics
+
+4.WordCloud
+Access:
+• WordCloud could be accessed by http://tweetminerweb.herokuapp.com/wordcloud or by pressing “Wordcloud” on menu bar.
+Function:
+• Wordcloud presents most frequently used words in recent Tweets, with size proportional to
+frequency
+
+5.Sentiment
+Access:
+• Sentiment could be accessed by http://tweetminerweb.herokuapp.com/sentiment or by pressing “Sentiment” on menu bar.
+Function:
+• Sentiment Bar displays Trump's most recent support rate.
+
+6.HeatMap
+Access:
+HeatMap could be accessed by http://tweetminerweb.herokuapp.com/heatmap or by pressing “Heatmap” on menu bar.
+Function:
+HeatMap represents tweeting speed amongst different states in North America.
+
+
+7. Run frontend code
+• Install the latest official Meteor release from your terminal:
+$ curl https://install.meteor.com/ | sh
+• using following command under project directory:
+$ Meteor
+• The terminal will display the following lines:
+=> Started proxy.
+=> Started MongoDB.
+=> Started your app.
+=> App running at: http://localhost:3000/
+• Go to following url in your browser: http://localhost:3000/
+• To access our deployed website, please visit: http://tweetminerweb.herokuapp.com
+
