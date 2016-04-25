@@ -34,6 +34,9 @@ else {
     svg = d3.select("svg");
 }
 
+
+//console.log("sentiment data:")
+//console.log(Data);
 var data = Data.find({type: "Sentiment"}).fetch()[0]["sentiment"];
 
 for (i = 0; i < data.length; i++) {

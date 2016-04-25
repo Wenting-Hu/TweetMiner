@@ -62,7 +62,8 @@ function draw(words) {
             })
             .attr("text-anchor", "middle")
             .attr("transform", function (d) {
-                return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+                //return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+                return "translate(" + [d.x, d.y] + ")rotate(0)";
             })
             .text(function (d) {
                 return d.text;
