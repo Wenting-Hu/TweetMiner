@@ -32,7 +32,7 @@ d3.layout.cloud().size([1200, 600])
     .text(function (d) {
         return d.text;
     })
-    .padding(10)
+    .padding(20)
     .fontSize(function (d) {
         return d.size;
     })
