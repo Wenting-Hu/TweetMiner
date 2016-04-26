@@ -17,10 +17,10 @@ var newdata = Data.find({type: "WordCloud"}).fetch()[0]["wordcloud"];
 var ar = $.map(newdata, function (o) {
     return o.count;
 });
-var highest = Math.max.apply(Math, ar);
-//console.log("updating cloud");
+var sum = ar.reduce(function(pv, cv) { return pv + cv; }, 0);
+//console.log(sum);
 for (i = 0; i < newdata.length; i++) {
-    frequency_list.push({"text": newdata[i]["keyword"], "size": newdata[i]["count"] / highest * 120});
+    frequency_list.push({"text": newdata[i]["keyword"], "size": newdata[i]["count"] / sum * 1500});
 }
 //console.log(frequency_list.length);
 
