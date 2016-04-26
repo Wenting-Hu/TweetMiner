@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 
 Meteor.methods({
     updateRank: function () {
-        HTTP.get('https://tweetminer.herokuapp.com/real-time/hashtag10',
+        HTTP.get('http://52.202.45.234:8080/real-time/hashtag10',
             function (error, response) {
                 if (!error) {
                     var obj = JSON.parse(response.content);
@@ -17,7 +17,7 @@ Meteor.methods({
     },
 
     updateMention: function () {
-        HTTP.get('https://tweetminer.herokuapp.com/real-time/mention',
+        HTTP.get('http://52.202.45.234:8080/real-time/mention',
             function (error, response) {
                 if (!error) {
                     var obj = JSON.parse(response.content);
@@ -33,7 +33,7 @@ Meteor.methods({
     },
 
     refreshRandom: function () {
-        HTTP.get('https://tweetminer.herokuapp.com/real-time/hashtag50',
+        HTTP.get('http://52.202.45.234:8080/real-time/hashtag50',
             function (error, response) {
                 if (!error) {
                     console.log("get random 10");
@@ -49,7 +49,7 @@ Meteor.methods({
     },
 
     updateTraffic: function () {
-        HTTP.get('https://tweetminer.herokuapp.com/real-time/traffic',
+        HTTP.get('http://52.202.45.234:8080/real-time/traffic',
             function (error, response) {
                 if (!error) {
                     var obj = JSON.parse(response.content);
@@ -64,7 +64,7 @@ Meteor.methods({
     },
 
     updateWordcloud: function () {
-        HTTP.get('http://tweetminer.herokuapp.com/real-time/wordcloud',
+        HTTP.get('http://52.202.45.234:8080/real-time/wordcloud',
             function (error, response) {
                 if (!error) {
                     console.log("get http success-for wordcloud");
@@ -83,7 +83,7 @@ Meteor.methods({
     },
 
     updateHeatMap: function () {
-        HTTP.get('http://tweetminer.herokuapp.com/real-time/heatmap',
+        HTTP.get('http://52.202.45.234:8080/real-time/heatmap',
             function (error, response) {
                 if (!error) {
                     // console.log("get http success-for heat map---------");
@@ -103,7 +103,7 @@ Meteor.methods({
     },
 
     updateSentiment: function () {
-        HTTP.get('http://tweetminer.herokuapp.com/real-time/sentiment',
+        HTTP.get('http://52.202.45.234:8080/real-time/sentiment',
             function (error, response) {
                 if (!error) {
                     console.log("get http success-for Sentiment---------");
