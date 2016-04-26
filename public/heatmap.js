@@ -17,7 +17,7 @@ function tooltipHtml(n, d){	/* function to create html content string in tooltip
     var newmapdata = Data.find({type: "HeatMap"}).fetch()[0]["heatmap"];
     var arr = $.map(newmapdata, function(o){return o.count;});
     var highest = Math.max.apply(Math,arr);
-    console.log(arr);
+    //console.log(arr);
     for (i = 0; i < newmapdata.length; i++) {
         var stateName = newmapdata[i]["state"];
         var stateCount = newmapdata[i]["count"];
