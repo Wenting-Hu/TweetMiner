@@ -20,7 +20,7 @@ var ar = $.map(newdata, function (o) {
 var highest = Math.max.apply(Math, ar);
 //console.log("updating cloud");
 for (i = 0; i < newdata.length; i++) {
-    frequency_list.push({"text": newdata[i]["keyword"], "size": newdata[i]["count"] / highest * 150});
+    frequency_list.push({"text": newdata[i]["keyword"], "size": newdata[i]["count"] / highest * 120});
 }
 //console.log(frequency_list.length);
 
@@ -32,7 +32,7 @@ d3.layout.cloud().size([1200, 600])
     .text(function (d) {
         return d.text;
     })
-    .padding(20)
+    .padding(15)
     .fontSize(function (d) {
         return d.size;
     })
